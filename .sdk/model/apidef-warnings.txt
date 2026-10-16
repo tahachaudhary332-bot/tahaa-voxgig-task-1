@@ -1,0 +1,43 @@
+{
+  point: "warning"
+  note: "no server URL in the definition (servers[0].url): the SDK takes it as the server variable `base`; set the `server` build option to fix one"
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /works/OL{work_id}W/check-ins and POST /works/OL{work_id}W/check-ins.json on entity=check_in op=create have the same selector (exist: work_id), so only POST /works/OL{work_id}W/check-ins is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "check_in"
+  op: "create"
+  points: [
+    "POST /works/OL{work_id}W/check-ins"
+    "POST /works/OL{work_id}W/check-ins.json"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /publishers/{key}.json and GET /subjects/{key}.json on entity=key op=load have the same selector (exist: key), so only GET /publishers/{key}.json is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "key"
+  op: "load"
+  points: [
+    "GET /publishers/{key}.json"
+    "GET /subjects/{key}.json"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /lists/{list_id}.json and GET /series/{list_id}.json on entity=list op=load have the same selector (exist: list_id), so only GET /lists/{list_id}.json is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "list"
+  op: "load"
+  points: [
+    "GET /lists/{list_id}.json"
+    "GET /series/{list_id}.json"
+  ]
+
+}

@@ -1,0 +1,107 @@
+# Entity: inside
+
+main: kit: entity: inside: {
+
+  alias: field: {}
+
+  name: "inside"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /search/inside.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: true
+                k: "query"
+                n: "facet"
+                or: "facets"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "q"
+                or: "q"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "readable"
+                or: "readable"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search/inside.json"
+          q: {
+            exist: [
+              "q"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "inside.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

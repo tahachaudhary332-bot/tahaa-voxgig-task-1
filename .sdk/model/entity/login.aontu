@@ -1,0 +1,76 @@
+# Entity: login
+
+main: kit: entity: login: {
+
+  alias: field: {}
+
+  name: "login"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /account/login"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/account/login"
+          rb: {
+            fields: [
+              {
+                name: "access"
+              }
+              {
+                name: "action"
+              }
+              {
+                name: "password"
+              }
+              {
+                name: "redirect"
+              }
+              {
+                name: "remember"
+              }
+              {
+                name: "secret"
+              }
+              {
+                name: "test"
+              }
+              {
+                name: "username"
+              }
+            ]
+            kind: "form"
+            media: "application/x-www-form-urlencoded"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "login"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

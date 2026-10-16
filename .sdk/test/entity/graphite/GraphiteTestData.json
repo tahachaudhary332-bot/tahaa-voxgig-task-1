@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "graphite": {
+      "GRAPHITE00": {
+        "id": "GRAPHITE00"
+      },
+      "GRAPHITE01": {
+        "id": "GRAPHITE01"
+      },
+      "GRAPHITE02": {
+        "id": "GRAPHITE02"
+      }
+    }
+  },
+  "new": {
+    "graphite": {
+      "graphite_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /cdn/graphite/{name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

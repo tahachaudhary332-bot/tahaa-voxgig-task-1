@@ -1,0 +1,35 @@
+# BasicCheckInFlow
+
+main: kit: flow: BasicCheckInFlow:
+{
+  entity: "check_in",
+  kind: "basic",
+  name: "BasicCheckInFlow",
+  step: [
+    {
+      i: {
+        ref: "check_in_ref01"
+      }
+
+      m: {
+        work_id: "work01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "check_in_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "check_in01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicCheckInFlow"
+}

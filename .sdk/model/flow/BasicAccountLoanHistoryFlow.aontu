@@ -1,0 +1,28 @@
+# BasicAccountLoanHistoryFlow
+
+main: kit: flow: BasicAccountLoanHistoryFlow:
+{
+  entity: "account_loan_history",
+  kind: "basic",
+  name: "BasicAccountLoanHistoryFlow",
+  step: [
+    {
+      i: {
+        ref: "account_loan_history_ref01",
+        srcdatavar: "account_loan_history_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-account_loan_history_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccountLoanHistoryFlow"
+}

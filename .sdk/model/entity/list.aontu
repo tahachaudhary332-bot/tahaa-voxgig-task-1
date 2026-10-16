@@ -1,0 +1,1205 @@
+# Entity: list
+
+main: kit: entity: list: {
+
+  alias: field: {}
+
+  fields: {
+    full_url: {
+      h: "Full Url"
+      n: "full_url"
+      r: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    last_update: {
+      h: "Last Update"
+      n: "last_update"
+      r: false
+      t: "`$ANY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    seed_count: {
+      h: "Seed Count"
+      n: "seed_count"
+      r: true
+      t: "`$INTEGER`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /people/{username}/lists/{list_id}/delete.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "list_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/people/{username}/lists/{list_id}/delete.json"
+          q: {
+            "$action": "delete"
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          r: {
+            param: {
+              list_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "delete.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: false
+          co: {
+            id: "POST /people/{username}/lists/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/people/{username}/lists/{olid}/seeds.json"
+          q: {
+            "$action": "seed"
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: false
+          co: {
+            id: "POST /people/{username}/series/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "series_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/people/{username}/series/{olid}/seeds.json"
+          q: {
+            exist: [
+              "series_id"
+              "username"
+            ]
+          }
+          r: {
+            param: {
+              olid: "series_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "series"
+            }
+            {
+              var: "series_id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /lists/{list_id}/delete.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "list_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/lists/{list_id}/delete.json"
+          q: {
+            "$action": "delete"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              list_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "delete.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: false
+          co: {
+            id: "POST /lists/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/lists/{olid}/seeds.json"
+          q: {
+            "$action": "seed"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: false
+          co: {
+            id: "POST /series/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "series_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/series/{olid}/seeds.json"
+          q: {
+            exist: [
+              "series_id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "series_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "series"
+            }
+            {
+              var: "series_id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /authors/OL{author_id}A/lists.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "author_id"
+                or: "author_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/authors/OL{author_id}A/lists.json"
+          q: {
+            exist: [
+              "author_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "authors"
+            }
+            {
+              lit: "OL{author_id}A"
+            }
+            {
+              lit: "lists.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+        {
+          co: {
+            id: "GET /books/OL{edition_id}M/lists.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "edition_id"
+                or: "edition_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/books/OL{edition_id}M/lists.json"
+          q: {
+            exist: [
+              "edition_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "books"
+            }
+            {
+              lit: "OL{edition_id}M"
+            }
+            {
+              lit: "lists.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+        {
+          co: {
+            id: "GET /subjects/{subject_key}/lists.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "subject_key"
+                or: "subject_key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subjects/{subject_key}/lists.json"
+          q: {
+            exist: [
+              "subject_key"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "subjects"
+            }
+            {
+              var: "subject_key"
+            }
+            {
+              lit: "lists.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+        {
+          co: {
+            id: "GET /people/{username}/lists.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/people/{username}/lists.json"
+          q: {
+            exist: [
+              "username"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+        {
+          co: {
+            id: "GET /works/OL{work_id}W/lists.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "work_id"
+                or: "work_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/works/OL{work_id}W/lists.json"
+          q: {
+            exist: [
+              "work_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "works"
+            }
+            {
+              lit: "OL{work_id}W"
+            }
+            {
+              lit: "lists.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /people/{username}/lists/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/people/{username}/lists/{olid}/seeds.json"
+          q: {
+            "$action": "seed"
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /people/{username}/lists/{list_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "list_id"
+                or: "list_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "raw"
+                or: "_raw"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/people/{username}/lists/{list_id}.json"
+          q: {
+            exist: [
+              "list_id"
+              "username"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists"
+            }
+            {
+              lit: "{list_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /people/{username}/series/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "series_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/people/{username}/series/{olid}/seeds.json"
+          q: {
+            exist: [
+              "series_id"
+              "username"
+            ]
+          }
+          r: {
+            param: {
+              olid: "series_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "series"
+            }
+            {
+              var: "series_id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /lists/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/lists/{olid}/seeds.json"
+          q: {
+            "$action": "seed"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /lists/{list_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "list_id"
+                or: "list_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "raw"
+                or: "_raw"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/lists/{list_id}.json"
+          q: {
+            exist: [
+              "list_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "lists"
+            }
+            {
+              lit: "{list_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /series/{list_id}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "list_id"
+                or: "list_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "raw"
+                or: "_raw"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/series/{list_id}.json"
+          q: {
+            exist: [
+              "list_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "series"
+            }
+            {
+              lit: "{list_id}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /series/{olid}/seeds.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "series_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/series/{olid}/seeds.json"
+          q: {
+            exist: [
+              "series_id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "series_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "series"
+            }
+            {
+              var: "series_id"
+            }
+            {
+              lit: "seeds.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /search/lists.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: ""
+                k: "query"
+                n: "api"
+                or: "api"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: ""
+                k: "query"
+                n: "field"
+                or: "fields"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: ""
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: ""
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search/lists.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "lists.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subject")]
+  ]
+
+}

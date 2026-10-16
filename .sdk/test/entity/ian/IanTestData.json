@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "ian": {
+      "IAN00": {
+        "ocaid": "OCAID01",
+        "id": "IAN00"
+      },
+      "IAN01": {
+        "ocaid": "OCAID01",
+        "id": "IAN01"
+      },
+      "IAN02": {
+        "ocaid": "OCAID01",
+        "id": "IAN02"
+      }
+    }
+  },
+  "new": {
+    "ian": {
+      "ian_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /borrow/ia/{ocaid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /borrow/ia/{ocaid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+# BasicListFlow
+
+main: kit: flow: BasicListFlow:
+{
+  entity: "list",
+  kind: "basic",
+  name: "BasicListFlow",
+  step: [
+    {
+      i: {
+        ref: "list_ref01"
+      }
+
+      m: {
+        author_id: "author01",
+        edition_id: "edition01",
+        list_id: "list01",
+        series_id: "series01",
+        subject_key: "subject_key01",
+        username: "username01",
+        work_id: "work01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        work_id: "work01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "list_ref01",
+        srcdatavar: "list_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-list_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListFlow"
+}

@@ -1,0 +1,112 @@
+# Entity: create_list
+
+main: kit: entity: create_list: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      t: "`$STRING`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    revision: {
+      h: "Revision"
+      n: "revision"
+      r: true
+      t: "`$INTEGER`"
+    }
+    seeds: {
+      h: "Seeds"
+      n: "seeds"
+      r: false
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 1
+      }
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "create_list"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "description"
+            "name"
+            "seeds"
+            "tags"
+          ]
+          co: {
+            id: "POST /people/{username}/lists.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/people/{username}/lists.json"
+          q: {
+            exist: [
+              "username"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

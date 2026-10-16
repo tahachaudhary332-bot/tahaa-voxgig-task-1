@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "inside": {
+      "INSIDE00": {
+        "id": "INSIDE00"
+      },
+      "INSIDE01": {
+        "id": "INSIDE01"
+      },
+      "INSIDE02": {
+        "id": "INSIDE02"
+      }
+    }
+  },
+  "new": {
+    "inside": {
+      "inside_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /search/inside.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

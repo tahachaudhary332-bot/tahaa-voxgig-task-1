@@ -1,0 +1,58 @@
+# Entity: account_loan_history
+
+main: kit: entity: account_loan_history: {
+
+  alias: field: {}
+
+  name: "account_loan_history"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /account/loan-history.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/account/loan-history.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "loan-history.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.loans_history`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "create_list": {
+      "CREATE_LIST00": {
+        "description": "s3c",
+        "key": "s3d",
+        "name": "s3e",
+        "revision": 63,
+        "seeds": [],
+        "tags": [],
+        "username": "USERNAME01",
+        "id": "CREATE_LIST00"
+      },
+      "CREATE_LIST01": {
+        "description": "s78",
+        "key": "s79",
+        "name": "s7a",
+        "revision": 123,
+        "seeds": [],
+        "tags": [],
+        "username": "USERNAME01",
+        "id": "CREATE_LIST01"
+      },
+      "CREATE_LIST02": {
+        "description": "sb4",
+        "key": "sb5",
+        "name": "sb6",
+        "revision": 183,
+        "seeds": [],
+        "tags": [],
+        "username": "USERNAME01",
+        "id": "CREATE_LIST02"
+      }
+    }
+  },
+  "new": {
+    "create_list": {
+      "create_list_ref01": {
+        "description": "sf0",
+        "key": "sf1",
+        "name": "sf2",
+        "revision": 243,
+        "seeds": [],
+        "tags": []
+      }
+    }
+  },
+  "requests": {
+    "POST /people/{username}/lists.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

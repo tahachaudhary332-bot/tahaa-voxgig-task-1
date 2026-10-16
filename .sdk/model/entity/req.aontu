@@ -1,0 +1,84 @@
+# Entity: req
+
+main: kit: entity: req: {
+
+  alias: field: {}
+
+  name: "req"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/volumes/{brief_or_full}/json/{req}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "req"
+                or: "req"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "volume_id"
+                or: "brief_or_full"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/volumes/{brief_or_full}/json/{req}.json"
+          q: {
+            exist: [
+              "req"
+              "volume_id"
+            ]
+          }
+          r: {
+            param: {
+              brief_or_full: "volume_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "volumes"
+            }
+            {
+              var: "volume_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "{req}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

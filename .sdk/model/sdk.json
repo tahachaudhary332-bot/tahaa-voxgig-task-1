@@ -1,0 +1,6422 @@
+{
+  "NAME": "OPEN-LIBRARY-SDK",
+  "Name": "OpenLibrarySdk",
+  "def": "openapi.json",
+  "main": {
+    "api": {
+      "entity": {},
+      "guide": {}
+    },
+    "custom": {
+      "plurals": {}
+    },
+    "def": {
+      "desc": ""
+    },
+    "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
+      "config": {
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        },
+        "repr": "auto"
+      },
+      "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "github-pages": {
+            "active": false,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "github-pages",
+            "name": "github-pages",
+            "origname": "",
+            "output": {
+              "path": "docs"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          },
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
+      "entity": {
+        "account_loan": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "loans": {
+              "a": true,
+              "h": "Loans",
+              "n": "loans",
+              "r": true,
+              "sh": "List of the user's current loans, each containing ocaid, book, resource_type, expiry, etc.",
+              "t": "`$ARRAY`"
+            }
+          },
+          "name": "account_loan",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /account/loans.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/account/loans.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "account"
+                    },
+                    {
+                      "lit": "loans.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.loans`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "account_loan_history": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "account_loan_history",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /account/loan-history.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/account/loan-history.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "account"
+                    },
+                    {
+                      "lit": "loan-history.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.loans_history`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "archiveorg": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "archiveorg",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cdn/archive.org/{filename}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "filename",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cdn/archive.org/{filename}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "filename": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "cdn"
+                    },
+                    {
+                      "lit": "archive.org"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "author": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "author",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search/authors.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "*",
+                        "k": "query",
+                        "n": "field",
+                        "or": "fields",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 100,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search/authors.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "search"
+                    },
+                    {
+                      "lit": "authors.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "book": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "book",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/books.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "bibkey",
+                        "or": "bibkeys",
+                        "r": true,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "callback",
+                        "or": "callback",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "false",
+                        "k": "query",
+                        "n": "detail",
+                        "or": "details",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "high_priority",
+                        "or": "high_priority",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "jscmd",
+                        "or": "jscmd",
+                        "r": false,
+                        "t": "`$ANY`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/books.json",
+                  "q": {
+                    "exist": [
+                      "bibkey"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "books.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "borrow": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "borrow",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /books/{olid}/{slug}/borrow",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "book_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "slug",
+                        "or": "slug",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/books/{olid}/{slug}/borrow",
+                  "q": {
+                    "exist": [
+                      "book_id",
+                      "slug"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "book_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "books"
+                    },
+                    {
+                      "var": "book_id"
+                    },
+                    {
+                      "var": "slug"
+                    },
+                    {
+                      "lit": "borrow"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /books/{olid}/{slug}/borrow",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "book_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "slug",
+                        "or": "slug",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/books/{olid}/{slug}/borrow",
+                  "q": {
+                    "exist": [
+                      "book_id",
+                      "slug"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "book_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "books"
+                    },
+                    {
+                      "var": "book_id"
+                    },
+                    {
+                      "var": "slug"
+                    },
+                    {
+                      "lit": "borrow"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": [
+              [
+                "$.main.kit.entity.book"
+              ]
+            ]
+          }
+        },
+        "check_in": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "day": {
+              "a": true,
+              "h": "Day",
+              "n": "day",
+              "r": false,
+              "sh": "Day (1-31)",
+              "t": "`$ANY`"
+            },
+            "edition_key": {
+              "a": true,
+              "h": "Edition Key",
+              "n": "edition_key",
+              "r": false,
+              "sh": "Edition OLID (e.g.",
+              "t": "`$ANY`"
+            },
+            "event_id": {
+              "a": true,
+              "h": "Event Id",
+              "n": "event_id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "event_type": {
+              "a": true,
+              "h": "Event Type",
+              "n": "event_type",
+              "r": true,
+              "sh": "Event type enum value (1=start, 2=update, 3=finish)",
+              "t": "`$INTEGER`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "month": {
+              "a": true,
+              "h": "Month",
+              "n": "month",
+              "r": false,
+              "sh": "Month (1-12)",
+              "t": "`$ANY`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "year": {
+              "a": true,
+              "h": "Year",
+              "n": "year",
+              "r": true,
+              "sh": "Four-digit year (1-9999)",
+              "t": "`$INTEGER`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "check_in",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "bf": [
+                    "day",
+                    "edition_key",
+                    "event_id",
+                    "event_type",
+                    "month",
+                    "year"
+                  ],
+                  "co": {
+                    "id": "POST /works/OL{work_id}W/check-ins",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "work_id",
+                        "or": "work_id",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/works/OL{work_id}W/check-ins",
+                  "q": {
+                    "exist": [
+                      "work_id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "works"
+                    },
+                    {
+                      "lit": "OL{work_id}W"
+                    },
+                    {
+                      "lit": "check-ins"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "bf": [
+                    "day",
+                    "edition_key",
+                    "event_id",
+                    "event_type",
+                    "month",
+                    "year"
+                  ],
+                  "co": {
+                    "id": "POST /works/OL{work_id}W/check-ins.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "work_id",
+                        "or": "work_id",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/works/OL{work_id}W/check-ins.json",
+                  "q": {
+                    "exist": [
+                      "work_id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "works"
+                    },
+                    {
+                      "lit": "OL{work_id}W"
+                    },
+                    {
+                      "lit": "check-ins.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "remove": {
+              "input": "data",
+              "name": "remove",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /check-ins/{check_in_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "check_in_id",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/check-ins/{check_in_id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "check_in_id": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "check-ins"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "create_list": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "revision": {
+              "a": true,
+              "h": "Revision",
+              "n": "revision",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "seeds": {
+              "a": true,
+              "h": "Seeds",
+              "n": "seeds",
+              "r": false,
+              "t": "`$ARRAY`",
+              "union": {
+                "branches": 2,
+                "count": 1,
+                "depth": 1
+              }
+            },
+            "tags": {
+              "a": true,
+              "h": "Tags",
+              "n": "tags",
+              "r": false,
+              "t": "`$ARRAY`"
+            }
+          },
+          "name": "create_list",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "bf": [
+                    "description",
+                    "name",
+                    "seeds",
+                    "tags"
+                  ],
+                  "co": {
+                    "id": "POST /people/{username}/lists.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/people/{username}/lists.json",
+                  "q": {
+                    "exist": [
+                      "username"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "feed": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "action": {
+              "a": true,
+              "h": "Action",
+              "n": "action",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "authors": {
+              "a": true,
+              "h": "Authors",
+              "n": "authors",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "comment": {
+              "a": true,
+              "h": "Comment",
+              "n": "comment",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "cover_url": {
+              "a": true,
+              "h": "Cover Url",
+              "n": "cover_url",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "editor": {
+              "a": true,
+              "h": "Editor",
+              "n": "editor",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "editor_key": {
+              "a": true,
+              "h": "Editor Key",
+              "n": "editor_key",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "kind": {
+              "a": true,
+              "h": "Kind",
+              "n": "kind",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "timestamp": {
+              "a": true,
+              "h": "Timestamp",
+              "n": "timestamp",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": true,
+              "t": "`$STRING`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "feed",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /tasks/feed.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/tasks/feed.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "tasks"
+                    },
+                    {
+                      "lit": "feed.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.rows`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "graphite": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "graphite",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cdn/graphite/{name}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cdn/graphite/{name}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "name": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "cdn"
+                    },
+                    {
+                      "lit": "graphite"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "health": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "health",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /health",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/health",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "health"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "ian": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "ian",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /borrow/ia/{ocaid}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "ocaid",
+                        "or": "ocaid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/borrow/ia/{ocaid}",
+                  "q": {
+                    "exist": [
+                      "ocaid"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "borrow"
+                    },
+                    {
+                      "lit": "ia"
+                    },
+                    {
+                      "var": "ocaid"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /borrow/ia/{ocaid}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "ocaid",
+                        "or": "ocaid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/borrow/ia/{ocaid}",
+                  "q": {
+                    "exist": [
+                      "ocaid"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "borrow"
+                    },
+                    {
+                      "lit": "ia"
+                    },
+                    {
+                      "var": "ocaid"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "idval": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "idval",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/volumes/{brief_or_full}/{idtype}/{idval}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "idtype",
+                        "or": "idtype",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "idval",
+                        "or": "idval",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "volume_id",
+                        "or": "brief_or_full",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "show_all_item",
+                        "or": "show_all_items",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/volumes/{brief_or_full}/{idtype}/{idval}.json",
+                  "q": {
+                    "exist": [
+                      "idtype",
+                      "idval",
+                      "volume_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "brief_or_full": "volume_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "volumes"
+                    },
+                    {
+                      "var": "volume_id"
+                    },
+                    {
+                      "var": "idtype"
+                    },
+                    {
+                      "lit": "{idval}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "import": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "import",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /import/preview.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/import/preview.json",
+                  "q": {
+                    "$action": "preview"
+                  },
+                  "r": {},
+                  "rb": {
+                    "fields": [
+                      {
+                        "name": "identifier"
+                      },
+                      {
+                        "name": "provider"
+                      },
+                      {
+                        "name": "save"
+                      },
+                      {
+                        "name": "source"
+                      }
+                    ],
+                    "kind": "form",
+                    "media": "application/x-www-form-urlencoded"
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "import"
+                    },
+                    {
+                      "lit": "preview.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /import/preview.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "identifier",
+                        "or": "identifier",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "provider",
+                        "or": "provider",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "source",
+                        "or": "source",
+                        "r": false,
+                        "t": "`$ANY`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/import/preview.json",
+                  "q": {
+                    "$action": "preview"
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "import"
+                    },
+                    {
+                      "lit": "preview.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "inside": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "inside",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search/inside.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": true,
+                        "k": "query",
+                        "n": "facet",
+                        "or": "facets",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "language",
+                        "or": "language",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "readable",
+                        "or": "readable",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search/inside.json",
+                  "q": {
+                    "exist": [
+                      "q"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "search"
+                    },
+                    {
+                      "lit": "inside.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "key": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "key",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /publishers/{key}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "key",
+                        "or": "key",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "detail",
+                        "or": "details",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "has_fulltext",
+                        "or": "has_fulltext",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 12,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "published_in",
+                        "or": "published_in",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "editions",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/publishers/{key}.json",
+                  "q": {
+                    "exist": [
+                      "key"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "publishers"
+                    },
+                    {
+                      "lit": "{key}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /subjects/{key}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "key",
+                        "or": "key",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "detail",
+                        "or": "details",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "has_fulltext",
+                        "or": "has_fulltext",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 12,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "published_in",
+                        "or": "published_in",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "editions",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/subjects/{key}.json",
+                  "q": {
+                    "exist": [
+                      "key"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "subjects"
+                    },
+                    {
+                      "lit": "{key}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "language": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "count": {
+              "a": true,
+              "h": "Count",
+              "n": "count",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "ebook_edition_count": {
+              "a": true,
+              "h": "Ebook Edition Count",
+              "n": "ebook_edition_count",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "marc_code": {
+              "a": true,
+              "h": "Marc Code",
+              "n": "marc_code",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "t": "`$STRING`"
+            }
+          },
+          "name": "language",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /languages.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 15,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "count",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/languages.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "languages.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "list": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "full_url": {
+              "a": true,
+              "h": "Full Url",
+              "n": "full_url",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "last_update": {
+              "a": true,
+              "h": "Last Update",
+              "n": "last_update",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "seed_count": {
+              "a": true,
+              "h": "Seed Count",
+              "n": "seed_count",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "url": {
+              "a": true,
+              "h": "Url",
+              "n": "url",
+              "r": true,
+              "t": "`$STRING`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "list",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /people/{username}/lists/{list_id}/delete.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "list_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/people/{username}/lists/{list_id}/delete.json",
+                  "q": {
+                    "$action": "delete",
+                    "exist": [
+                      "id",
+                      "username"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "list_id": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "delete.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "bf": false,
+                  "co": {
+                    "id": "POST /people/{username}/lists/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/people/{username}/lists/{olid}/seeds.json",
+                  "q": {
+                    "$action": "seed",
+                    "exist": [
+                      "id",
+                      "username"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "bf": false,
+                  "co": {
+                    "id": "POST /people/{username}/series/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "series_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/people/{username}/series/{olid}/seeds.json",
+                  "q": {
+                    "exist": [
+                      "series_id",
+                      "username"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "series_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "series"
+                    },
+                    {
+                      "var": "series_id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /lists/{list_id}/delete.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "list_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/lists/{list_id}/delete.json",
+                  "q": {
+                    "$action": "delete",
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "list_id": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "delete.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "bf": false,
+                  "co": {
+                    "id": "POST /lists/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/lists/{olid}/seeds.json",
+                  "q": {
+                    "$action": "seed",
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "bf": false,
+                  "co": {
+                    "id": "POST /series/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "series_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/series/{olid}/seeds.json",
+                  "q": {
+                    "exist": [
+                      "series_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "series_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "series"
+                    },
+                    {
+                      "var": "series_id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /authors/OL{author_id}A/lists.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "author_id",
+                        "or": "author_id",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/authors/OL{author_id}A/lists.json",
+                  "q": {
+                    "exist": [
+                      "author_id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "authors"
+                    },
+                    {
+                      "lit": "OL{author_id}A"
+                    },
+                    {
+                      "lit": "lists.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /books/OL{edition_id}M/lists.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "edition_id",
+                        "or": "edition_id",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/books/OL{edition_id}M/lists.json",
+                  "q": {
+                    "exist": [
+                      "edition_id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "books"
+                    },
+                    {
+                      "lit": "OL{edition_id}M"
+                    },
+                    {
+                      "lit": "lists.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /subjects/{subject_key}/lists.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "subject_key",
+                        "or": "subject_key",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/subjects/{subject_key}/lists.json",
+                  "q": {
+                    "exist": [
+                      "subject_key"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "subjects"
+                    },
+                    {
+                      "var": "subject_key"
+                    },
+                    {
+                      "lit": "lists.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /people/{username}/lists.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/people/{username}/lists.json",
+                  "q": {
+                    "exist": [
+                      "username"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /works/OL{work_id}W/lists.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "work_id",
+                        "or": "work_id",
+                        "r": true,
+                        "t": "`$INTEGER`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/works/OL{work_id}W/lists.json",
+                  "q": {
+                    "exist": [
+                      "work_id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "works"
+                    },
+                    {
+                      "lit": "OL{work_id}W"
+                    },
+                    {
+                      "lit": "lists.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /people/{username}/lists/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/people/{username}/lists/{olid}/seeds.json",
+                  "q": {
+                    "$action": "seed",
+                    "exist": [
+                      "id",
+                      "username"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /people/{username}/lists/{list_id}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "list_id",
+                        "or": "list_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "raw",
+                        "or": "_raw",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/people/{username}/lists/{list_id}.json",
+                  "q": {
+                    "exist": [
+                      "list_id",
+                      "username"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "lit": "{list_id}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /people/{username}/series/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "series_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/people/{username}/series/{olid}/seeds.json",
+                  "q": {
+                    "exist": [
+                      "series_id",
+                      "username"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "series_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "series"
+                    },
+                    {
+                      "var": "series_id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /lists/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/lists/{olid}/seeds.json",
+                  "q": {
+                    "$action": "seed",
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /lists/{list_id}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "list_id",
+                        "or": "list_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "raw",
+                        "or": "_raw",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/lists/{list_id}.json",
+                  "q": {
+                    "exist": [
+                      "list_id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "lit": "{list_id}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /series/{list_id}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "list_id",
+                        "or": "list_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "raw",
+                        "or": "_raw",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/series/{list_id}.json",
+                  "q": {
+                    "exist": [
+                      "list_id"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "series"
+                    },
+                    {
+                      "lit": "{list_id}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /series/{olid}/seeds.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "series_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/series/{olid}/seeds.json",
+                  "q": {
+                    "exist": [
+                      "series_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "series_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "series"
+                    },
+                    {
+                      "var": "series_id"
+                    },
+                    {
+                      "lit": "seeds.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search/lists.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "api",
+                        "or": "api",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "field",
+                        "or": "fields",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search/lists.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "search"
+                    },
+                    {
+                      "lit": "lists.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": [
+              [
+                "$.main.kit.entity.subject"
+              ]
+            ]
+          }
+        },
+        "list_editions_model": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "end": {
+              "a": true,
+              "h": "End",
+              "n": "end",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "entries": {
+              "a": true,
+              "h": "Entries",
+              "n": "entries",
+              "r": true,
+              "t": "`$ARRAY`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "links": {
+              "a": true,
+              "h": "Links",
+              "n": "links",
+              "r": true,
+              "t": "`$OBJECT`"
+            },
+            "size": {
+              "a": true,
+              "h": "Size",
+              "n": "size",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "start": {
+              "a": true,
+              "h": "Start",
+              "n": "start",
+              "r": true,
+              "t": "`$INTEGER`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "list_editions_model",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /people/{username}/lists/{olid}/editions.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/people/{username}/lists/{olid}/editions.json",
+                  "q": {
+                    "$action": "editions.json",
+                    "exist": [
+                      "id",
+                      "username"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "editions.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /lists/{olid}/editions.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/lists/{olid}/editions.json",
+                  "q": {
+                    "$action": "editions.json",
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "editions.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /series/{olid}/editions.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "series_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/series/{olid}/editions.json",
+                  "q": {
+                    "exist": [
+                      "series_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "series_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "series"
+                    },
+                    {
+                      "var": "series_id"
+                    },
+                    {
+                      "lit": "editions.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.entries`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "list_subjects_model": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "links": {
+              "a": true,
+              "h": "Links",
+              "n": "links",
+              "r": true,
+              "t": "`$OBJECT`"
+            },
+            "people": {
+              "a": true,
+              "h": "People",
+              "n": "people",
+              "r": true,
+              "t": "`$ARRAY`"
+            },
+            "places": {
+              "a": true,
+              "h": "Places",
+              "n": "places",
+              "r": true,
+              "t": "`$ARRAY`"
+            },
+            "subjects": {
+              "a": true,
+              "h": "Subjects",
+              "n": "subjects",
+              "r": true,
+              "t": "`$ARRAY`"
+            },
+            "times": {
+              "a": true,
+              "h": "Times",
+              "n": "times",
+              "r": true,
+              "t": "`$ARRAY`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "list_subjects_model",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /people/{username}/lists/{olid}/subjects.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/people/{username}/lists/{olid}/subjects.json",
+                  "q": {
+                    "$action": "subjects.json",
+                    "exist": [
+                      "id",
+                      "username"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "subjects.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /lists/{olid}/subjects.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/lists/{olid}/subjects.json",
+                  "q": {
+                    "$action": "subjects.json",
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "lists"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "subjects.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /series/{olid}/subjects.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "series_id",
+                        "or": "olid",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/series/{olid}/subjects.json",
+                  "q": {
+                    "exist": [
+                      "series_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "olid": "series_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "series"
+                    },
+                    {
+                      "var": "series_id"
+                    },
+                    {
+                      "lit": "subjects.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "login": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "login",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /account/login",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/account/login",
+                  "q": {},
+                  "r": {},
+                  "rb": {
+                    "fields": [
+                      {
+                        "name": "access"
+                      },
+                      {
+                        "name": "action"
+                      },
+                      {
+                        "name": "password"
+                      },
+                      {
+                        "name": "redirect"
+                      },
+                      {
+                        "name": "remember"
+                      },
+                      {
+                        "name": "secret"
+                      },
+                      {
+                        "name": "test"
+                      },
+                      {
+                        "name": "username"
+                      }
+                    ],
+                    "kind": "form",
+                    "media": "application/x-www-form-urlencoded"
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "account"
+                    },
+                    {
+                      "lit": "login"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "logout": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "logout",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /account/logout",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/account/logout",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "account"
+                    },
+                    {
+                      "lit": "logout"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "merge": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "comment": {
+              "a": true,
+              "h": "Comment",
+              "n": "comment",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "duplicates": {
+              "a": true,
+              "h": "Duplicates",
+              "n": "duplicates",
+              "r": true,
+              "t": "`$ARRAY`"
+            },
+            "master": {
+              "a": true,
+              "h": "Master",
+              "n": "master",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "mrid": {
+              "a": true,
+              "h": "Mrid",
+              "n": "mrid",
+              "r": false,
+              "t": "`$ANY`"
+            },
+            "olids": {
+              "a": true,
+              "h": "Olids",
+              "n": "olids",
+              "r": false,
+              "t": "`$STRING`"
+            }
+          },
+          "name": "merge",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "bf": [
+                    "comment",
+                    "duplicates",
+                    "master",
+                    "mrid",
+                    "olids"
+                  ],
+                  "co": {
+                    "id": "POST /authors/merge.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/authors/merge.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "authors"
+                    },
+                    {
+                      "lit": "merge.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "reading_goal": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "goal": {
+              "a": true,
+              "h": "Goal",
+              "n": "goal",
+              "r": true,
+              "sh": "The target number of books to read",
+              "t": "`$INTEGER`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Response status",
+              "t": "`$STRING`"
+            },
+            "year": {
+              "a": true,
+              "h": "Year",
+              "n": "year",
+              "r": true,
+              "sh": "The year for this reading goal (1-9999)",
+              "t": "`$INTEGER`"
+            }
+          },
+          "name": "reading_goal",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /reading-goal.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/reading-goal.json",
+                  "q": {},
+                  "r": {},
+                  "rb": {
+                    "fields": [
+                      {
+                        "name": "goal"
+                      },
+                      {
+                        "name": "is_update"
+                      },
+                      {
+                        "name": "year"
+                      }
+                    ],
+                    "kind": "form",
+                    "media": "application/x-www-form-urlencoded"
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "reading-goal.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /reading-goal.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "year",
+                        "or": "year",
+                        "r": false,
+                        "t": "`$ANY`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/reading-goal.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "reading-goal.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.goal`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "reading_log": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "logged_date": {
+              "a": true,
+              "h": "Logged Date",
+              "n": "logged_date",
+              "r": true,
+              "t": "`$ANY`"
+            },
+            "logged_edition": {
+              "a": true,
+              "h": "Logged Edition",
+              "n": "logged_edition",
+              "r": true,
+              "t": "`$ANY`"
+            },
+            "work": {
+              "a": true,
+              "h": "Work",
+              "n": "work",
+              "r": true,
+              "sh": "Work data in reading log.",
+              "t": "`$OBJECT`"
+            }
+          },
+          "name": "reading_log",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /people/{username}/books/{key}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "key",
+                        "or": "key",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "username",
+                        "or": "username",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 100,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "everything",
+                        "k": "query",
+                        "n": "mode",
+                        "or": "mode",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/people/{username}/books/{key}.json",
+                  "q": {
+                    "exist": [
+                      "key",
+                      "username"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "people"
+                    },
+                    {
+                      "var": "username"
+                    },
+                    {
+                      "lit": "books"
+                    },
+                    {
+                      "lit": "{key}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.reading_log_entries`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "req": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "req",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/volumes/{brief_or_full}/json/{req}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "req",
+                        "or": "req",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "volume_id",
+                        "or": "brief_or_full",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/volumes/{brief_or_full}/json/{req}.json",
+                  "q": {
+                    "exist": [
+                      "req",
+                      "volume_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "brief_or_full": "volume_id"
+                    }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "volumes"
+                    },
+                    {
+                      "var": "volume_id"
+                    },
+                    {
+                      "lit": "json"
+                    },
+                    {
+                      "lit": "{req}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "search": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "docs": {
+              "a": true,
+              "h": "Docs",
+              "n": "docs",
+              "r": false,
+              "t": "`$ARRAY`"
+            },
+            "documentation_url": {
+              "a": true,
+              "h": "Documentation Url",
+              "n": "documentation_url",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "numFound": {
+              "a": true,
+              "h": "Num Found",
+              "n": "numFound",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "numFoundExact": {
+              "a": true,
+              "h": "Num Found Exact",
+              "n": "numFoundExact",
+              "r": true,
+              "t": "`$BOOLEAN`"
+            },
+            "num_found": {
+              "a": true,
+              "h": "Num Found",
+              "n": "num_found",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "offset": {
+              "a": true,
+              "h": "Offset",
+              "n": "offset",
+              "r": true,
+              "t": "`$INTEGER`"
+            },
+            "q": {
+              "a": true,
+              "h": "Q",
+              "n": "q",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "start": {
+              "a": true,
+              "h": "Start",
+              "n": "start",
+              "r": true,
+              "t": "`$INTEGER`"
+            }
+          },
+          "name": "search",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "author",
+                        "or": "author",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "author_facet",
+                        "or": "author_facet",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "author_key",
+                        "or": "author_key",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "contributor",
+                        "or": "contributor",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": [
+                          "author_key",
+                          "author_name",
+                          "cover_edition_key",
+                          "cover_height",
+                          "cover_i",
+                          "cover_width",
+                          "ebook_access",
+                          "edition_count",
+                          "first_publish_year",
+                          "has_fulltext",
+                          "ia",
+                          "ia_collection",
+                          "id_cita_press",
+                          "id_librivox",
+                          "id_openstax",
+                          "id_project_gutenberg",
+                          "id_project_runeberg",
+                          "id_standard_ebooks",
+                          "id_wikisource",
+                          "key",
+                          "language",
+                          "lending_edition_s",
+                          "lending_identifier_s",
+                          "public_scan_b",
+                          "series_key",
+                          "series_name",
+                          "series_position",
+                          "subtitle",
+                          "title"
+                        ],
+                        "k": "query",
+                        "n": "field",
+                        "or": "fields",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "first_publish_year",
+                        "or": "first_publish_year",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "has_fulltext",
+                        "or": "has_fulltext",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "isbn",
+                        "or": "isbn",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "language",
+                        "or": "language",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lccn",
+                        "or": "lccn",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 100,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "oclc",
+                        "or": "oclc",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "person",
+                        "or": "person",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "person_facet",
+                        "or": "person_facet",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "place",
+                        "or": "place",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "place_facet",
+                        "or": "place_facet",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "print_disabled",
+                        "or": "print_disabled",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "public_scan",
+                        "or": "public_scan",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "public_scan_b",
+                        "or": "public_scan_b",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "publisher",
+                        "or": "publisher",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "publisher_facet",
+                        "or": "publisher_facet",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 3,
+                        "k": "query",
+                        "n": "spellcheck_count",
+                        "or": "spellcheck_count",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "subject",
+                        "or": "subject",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "subject_facet",
+                        "or": "subject_facet",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "time",
+                        "or": "time",
+                        "r": false,
+                        "t": "`$ANY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "time_facet",
+                        "or": "time_facet",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "title",
+                        "or": "title",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "search.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.docs`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search/editions.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": [
+                          "cover_i",
+                          "ebook_access",
+                          "isbn",
+                          "key",
+                          "language",
+                          "publish_date",
+                          "publisher",
+                          "subtitle",
+                          "title",
+                          "work_key"
+                        ],
+                        "k": "query",
+                        "n": "field",
+                        "or": "fields",
+                        "r": false,
+                        "t": "`$ARRAY`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 100,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "work_key",
+                        "or": "work_key",
+                        "r": false,
+                        "t": "`$ANY`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search/editions.json",
+                  "q": {
+                    "$action": "edition"
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "search"
+                    },
+                    {
+                      "lit": "editions.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "subject": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "subject",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search/subjects.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": 100,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "",
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search/subjects.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "search"
+                    },
+                    {
+                      "lit": "subjects.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
+          },
+          "description": "In-memory mock transport for testing without a live server",
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Test transport",
+          "transport": "base",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicAccountLoanFlow": {
+          "active": true,
+          "entity": "account_loan",
+          "key$": "BasicAccountLoanFlow",
+          "kind": "basic",
+          "name": "BasicAccountLoanFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "account_loan_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicAccountLoanHistoryFlow": {
+          "active": true,
+          "entity": "account_loan_history",
+          "key$": "BasicAccountLoanHistoryFlow",
+          "kind": "basic",
+          "name": "BasicAccountLoanHistoryFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "account_loan_history_ref01",
+                "srcdatavar": "account_loan_history_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-account_loan_history_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicArchiveorgFlow": {
+          "active": true,
+          "entity": "archiveorg",
+          "key$": "BasicArchiveorgFlow",
+          "kind": "basic",
+          "name": "BasicArchiveorgFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "archiveorg_ref01",
+                "srcdatavar": "archiveorg_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "id": "archiveorg01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-archiveorg_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicAuthorFlow": {
+          "active": true,
+          "entity": "author",
+          "key$": "BasicAuthorFlow",
+          "kind": "basic",
+          "name": "BasicAuthorFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "author_ref01",
+                "srcdatavar": "author_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-author_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicBookFlow": {
+          "active": true,
+          "entity": "book",
+          "key$": "BasicBookFlow",
+          "kind": "basic",
+          "name": "BasicBookFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "book_ref01",
+                "srcdatavar": "book_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-book_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicBorrowFlow": {
+          "active": true,
+          "entity": "borrow",
+          "key$": "BasicBorrowFlow",
+          "kind": "basic",
+          "name": "BasicBorrowFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "borrow_ref01"
+              },
+              "m": {
+                "book_id": "book01",
+                "slug": "slug01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "borrow_ref01",
+                "srcdatavar": "borrow_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "book_id": "book01",
+                "id": "borrow01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-borrow_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicCheckInFlow": {
+          "active": true,
+          "entity": "check_in",
+          "key$": "BasicCheckInFlow",
+          "kind": "basic",
+          "name": "BasicCheckInFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "check_in_ref01"
+              },
+              "m": {
+                "work_id": "work01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "check_in_ref01",
+                "suffix": "_rm0"
+              },
+              "m": {
+                "id": "check_in01"
+              },
+              "o": "remove",
+              "s": [],
+              "v": []
+            }
+          ]
+        },
+        "BasicCreateListFlow": {
+          "active": true,
+          "entity": "create_list",
+          "key$": "BasicCreateListFlow",
+          "kind": "basic",
+          "name": "BasicCreateListFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "create_list_ref01"
+              },
+              "m": {
+                "username": "username01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            }
+          ]
+        },
+        "BasicFeedFlow": {
+          "active": true,
+          "entity": "feed",
+          "key$": "BasicFeedFlow",
+          "kind": "basic",
+          "name": "BasicFeedFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "feed_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicGraphiteFlow": {
+          "active": true,
+          "entity": "graphite",
+          "key$": "BasicGraphiteFlow",
+          "kind": "basic",
+          "name": "BasicGraphiteFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "graphite_ref01",
+                "srcdatavar": "graphite_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "id": "graphite01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-graphite_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicHealthFlow": {
+          "active": true,
+          "entity": "health",
+          "key$": "BasicHealthFlow",
+          "kind": "basic",
+          "name": "BasicHealthFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "health_ref01",
+                "srcdatavar": "health_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-health_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicIanFlow": {
+          "active": true,
+          "entity": "ian",
+          "key$": "BasicIanFlow",
+          "kind": "basic",
+          "name": "BasicIanFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "ian_ref01"
+              },
+              "m": {
+                "ocaid": "ocaid01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "ian_ref01",
+                "srcdatavar": "ian_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "id": "ian01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-ian_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicIdvalFlow": {
+          "active": true,
+          "entity": "idval",
+          "key$": "BasicIdvalFlow",
+          "kind": "basic",
+          "name": "BasicIdvalFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "idval_ref01",
+                "srcdatavar": "idval_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "id": "idval01",
+                "idval": "idval01",
+                "volume_id": "volume01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-idval_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicImportFlow": {
+          "active": true,
+          "entity": "import",
+          "key$": "BasicImportFlow",
+          "kind": "basic",
+          "name": "BasicImportFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "import_ref01"
+              },
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "import_ref01",
+                "srcdatavar": "import_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-import_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicInsideFlow": {
+          "active": true,
+          "entity": "inside",
+          "key$": "BasicInsideFlow",
+          "kind": "basic",
+          "name": "BasicInsideFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "inside_ref01",
+                "srcdatavar": "inside_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-inside_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicKeyFlow": {
+          "active": true,
+          "entity": "key",
+          "key$": "BasicKeyFlow",
+          "kind": "basic",
+          "name": "BasicKeyFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "key_ref01",
+                "srcdatavar": "key_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "key": "key01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-key_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicLanguageFlow": {
+          "active": true,
+          "entity": "language",
+          "key$": "BasicLanguageFlow",
+          "kind": "basic",
+          "name": "BasicLanguageFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "language_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicListEditionsModelFlow": {
+          "active": true,
+          "entity": "list_editions_model",
+          "key$": "BasicListEditionsModelFlow",
+          "kind": "basic",
+          "name": "BasicListEditionsModelFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
+                "series_id": "series01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "list_editions_model_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicListFlow": {
+          "active": true,
+          "entity": "list",
+          "key$": "BasicListFlow",
+          "kind": "basic",
+          "name": "BasicListFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "list_ref01"
+              },
+              "m": {
+                "author_id": "author01",
+                "edition_id": "edition01",
+                "list_id": "list01",
+                "series_id": "series01",
+                "subject_key": "subject_key01",
+                "username": "username01",
+                "work_id": "work01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
+                "work_id": "work01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "list_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "list_ref01",
+                "srcdatavar": "list_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-list_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicListSubjectsModelFlow": {
+          "active": true,
+          "entity": "list_subjects_model",
+          "key$": "BasicListSubjectsModelFlow",
+          "kind": "basic",
+          "name": "BasicListSubjectsModelFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
+                "series_id": "series01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "list_subjects_model_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicLoginFlow": {
+          "active": true,
+          "entity": "login",
+          "key$": "BasicLoginFlow",
+          "kind": "basic",
+          "name": "BasicLoginFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "login_ref01"
+              },
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
+            }
+          ]
+        },
+        "BasicLogoutFlow": {
+          "active": true,
+          "entity": "logout",
+          "key$": "BasicLogoutFlow",
+          "kind": "basic",
+          "name": "BasicLogoutFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "logout_ref01"
+              },
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
+            }
+          ]
+        },
+        "BasicMergeFlow": {
+          "active": true,
+          "entity": "merge",
+          "key$": "BasicMergeFlow",
+          "kind": "basic",
+          "name": "BasicMergeFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "merge_ref01"
+              },
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
+            }
+          ]
+        },
+        "BasicReadingGoalFlow": {
+          "active": true,
+          "entity": "reading_goal",
+          "key$": "BasicReadingGoalFlow",
+          "kind": "basic",
+          "name": "BasicReadingGoalFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "reading_goal_ref01"
+              },
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "reading_goal_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicReadingLogFlow": {
+          "active": true,
+          "entity": "reading_log",
+          "key$": "BasicReadingLogFlow",
+          "kind": "basic",
+          "name": "BasicReadingLogFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
+                "key": "key01",
+                "username": "username01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "reading_log_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicReqFlow": {
+          "active": true,
+          "entity": "req",
+          "key$": "BasicReqFlow",
+          "kind": "basic",
+          "name": "BasicReqFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "req_ref01",
+                "srcdatavar": "req_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "id": "req01",
+                "req": "req01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-req_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicSearchFlow": {
+          "active": true,
+          "entity": "search",
+          "key$": "BasicSearchFlow",
+          "kind": "basic",
+          "name": "BasicSearchFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "search_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "search_ref01",
+                "srcdatavar": "search_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-search_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicSubjectFlow": {
+          "active": true,
+          "entity": "subject",
+          "key$": "BasicSubjectFlow",
+          "kind": "basic",
+          "name": "BasicSubjectFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "subject_ref01",
+                "srcdatavar": "subject_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-subject_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "info": {
+        "contact": {
+          "email": "openlibrary@archive.org",
+          "name": "Open Library Team",
+          "url": "https://openlibrary.org/"
+        },
+        "description": "The Open Library API provides comprehensive access to library catalog data including books, authors, works, lists, and user data. Supports both public and authenticated endpoints with full data validation and type safety.",
+        "license": {
+          "name": "AGPL-3.0",
+          "url": "https://github.com/internetarchive/openlibrary/blob/master/LICENSE"
+        },
+        "security": {
+          "in": "cookie",
+          "name": "session",
+          "prefix": "",
+          "scheme": "APIKeyCookie",
+          "type": "apiKey"
+        },
+        "servers": [
+          {
+            "url": "{base}",
+            "variables": {
+              "base": {
+                "description": "The base URL of the API, which its definition does not name."
+              }
+            }
+          }
+        ],
+        "summary": "The Open Library API provides comprehensive access to library catalog data including books, authors, works, lists, and user data.",
+        "title": "Open Library API",
+        "version": "1.0.0",
+        "website": "https://openlibrary.org/"
+      },
+      "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,patch,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "in": "",
+          "name": "",
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
+      "phase": {
+        "build": {
+          "active": true
+        },
+        "top": {
+          "active": true
+        }
+      },
+      "publisher": {
+        "name": "Taha Umar",
+        "security": "",
+        "url": ""
+      },
+      "repo": {
+        "host": "github.com",
+        "path": "tahachaudhary332-bot/open-library-voxgig-sdk"
+      },
+      "target": {
+        "ts": {
+          "active": true,
+          "author": {
+            "name": "Taha Umar",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "open-library-sdk",
+            "package": "",
+            "path": ""
+          },
+          "name": "ts",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "npm",
+              "package": "",
+              "state": "pending",
+              "url": "https://registry.npmjs.org",
+              "vault": {
+                "alias": "npm",
+                "env": "",
+                "recipe": "npm"
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
+          "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": true
+        }
+      },
+      "text": {
+        "about_md": "",
+        "docs_url": "",
+        "entity_desc": {},
+        "homepage": "",
+        "meta_source": "",
+        "summary": "",
+        "tagline": "",
+        "title": "",
+        "website": ""
+      }
+    }
+  },
+  "name": "open-library-sdk",
+  "name-": "open-library-sdk",
+  "name_": "open_library_sdk",
+  "name__orig": "open-library-sdk",
+  "origin": "voxgig-sdk"
+}

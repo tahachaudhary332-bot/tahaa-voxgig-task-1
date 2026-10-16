@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "import": {
+      "IMPORT00": {
+        "id": "IMPORT00"
+      },
+      "IMPORT01": {
+        "id": "IMPORT01"
+      },
+      "IMPORT02": {
+        "id": "IMPORT02"
+      }
+    }
+  },
+  "new": {
+    "import": {
+      "import_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /import/preview.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /import/preview.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

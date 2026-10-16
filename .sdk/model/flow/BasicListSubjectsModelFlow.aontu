@@ -1,0 +1,26 @@
+# BasicListSubjectsModelFlow
+
+main: kit: flow: BasicListSubjectsModelFlow:
+{
+  entity: "list_subjects_model",
+  kind: "basic",
+  name: "BasicListSubjectsModelFlow",
+  step: [
+    {
+      m: {
+        series_id: "series01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_subjects_model_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSubjectsModelFlow"
+}

@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "logout": {
+      "LOGOUT00": {
+        "id": "LOGOUT00"
+      },
+      "LOGOUT01": {
+        "id": "LOGOUT01"
+      },
+      "LOGOUT02": {
+        "id": "LOGOUT02"
+      }
+    }
+  },
+  "new": {
+    "logout": {
+      "logout_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /account/logout": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

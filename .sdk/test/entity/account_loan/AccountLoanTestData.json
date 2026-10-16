@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "account_loan": {
+      "ACCOUNT_LOAN00": {
+        "loans": []
+      },
+      "ACCOUNT_LOAN01": {
+        "loans": []
+      },
+      "ACCOUNT_LOAN02": {
+        "loans": []
+      }
+    }
+  },
+  "new": {
+    "account_loan": {
+      "account_loan_ref01": {
+        "loans": []
+      }
+    }
+  },
+  "requests": {
+    "GET /account/loans.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

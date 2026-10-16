@@ -1,0 +1,234 @@
+# Entity: check_in
+
+main: kit: entity: check_in: {
+
+  alias: field: {}
+
+  fields: {
+    day: {
+      h: "Day"
+      n: "day"
+      r: false
+      sh: "Day (1-31)"
+      t: "`$ANY`"
+    }
+    edition_key: {
+      h: "Edition Key"
+      n: "edition_key"
+      r: false
+      sh: "Edition OLID (e.g."
+      t: "`$ANY`"
+    }
+    event_id: {
+      h: "Event Id"
+      n: "event_id"
+      r: false
+      t: "`$STRING`"
+    }
+    event_type: {
+      h: "Event Type"
+      n: "event_type"
+      r: true
+      sh: "Event type enum value (1=start, 2=update, 3=finish)"
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    month: {
+      h: "Month"
+      n: "month"
+      r: false
+      sh: "Month (1-12)"
+      t: "`$ANY`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      t: "`$STRING`"
+    }
+    year: {
+      h: "Year"
+      n: "year"
+      r: true
+      sh: "Four-digit year (1-9999)"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "check_in"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "day"
+            "edition_key"
+            "event_id"
+            "event_type"
+            "month"
+            "year"
+          ]
+          co: {
+            id: "POST /works/OL{work_id}W/check-ins"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "work_id"
+                or: "work_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/works/OL{work_id}W/check-ins"
+          q: {
+            exist: [
+              "work_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "works"
+            }
+            {
+              lit: "OL{work_id}W"
+            }
+            {
+              lit: "check-ins"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "day"
+            "edition_key"
+            "event_id"
+            "event_type"
+            "month"
+            "year"
+          ]
+          co: {
+            id: "POST /works/OL{work_id}W/check-ins.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "work_id"
+                or: "work_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/works/OL{work_id}W/check-ins.json"
+          q: {
+            exist: [
+              "work_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "works"
+            }
+            {
+              lit: "OL{work_id}W"
+            }
+            {
+              lit: "check-ins.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /check-ins/{check_in_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "check_in_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/check-ins/{check_in_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              check_in_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "check-ins"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

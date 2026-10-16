@@ -1,0 +1,32 @@
+# BasicArchiveorgFlow
+
+main: kit: flow: BasicArchiveorgFlow:
+{
+  entity: "archiveorg",
+  kind: "basic",
+  name: "BasicArchiveorgFlow",
+  step: [
+    {
+      i: {
+        ref: "archiveorg_ref01",
+        srcdatavar: "archiveorg_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "archiveorg01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-archiveorg_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicArchiveorgFlow"
+}

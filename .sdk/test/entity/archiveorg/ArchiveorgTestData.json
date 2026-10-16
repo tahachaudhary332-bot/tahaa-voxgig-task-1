@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "archiveorg": {
+      "ARCHIVEORG00": {
+        "id": "ARCHIVEORG00"
+      },
+      "ARCHIVEORG01": {
+        "id": "ARCHIVEORG01"
+      },
+      "ARCHIVEORG02": {
+        "id": "ARCHIVEORG02"
+      }
+    }
+  },
+  "new": {
+    "archiveorg": {
+      "archiveorg_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /cdn/archive.org/{filename}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

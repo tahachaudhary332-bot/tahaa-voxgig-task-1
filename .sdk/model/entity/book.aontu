@@ -1,0 +1,99 @@
+# Entity: book
+
+main: kit: entity: book: {
+
+  alias: field: {}
+
+  name: "book"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/books.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "bibkey"
+                or: "bibkeys"
+                r: true
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "callback"
+                or: "callback"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: "false"
+                k: "query"
+                n: "detail"
+                or: "details"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "high_priority"
+                or: "high_priority"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "jscmd"
+                or: "jscmd"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/books.json"
+          q: {
+            exist: [
+              "bibkey"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "books.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

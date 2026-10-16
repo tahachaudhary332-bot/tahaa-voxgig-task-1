@@ -1,0 +1,68 @@
+{
+  "existing": {
+    "feed": {
+      "FEED00": {
+        "action": "s6e",
+        "authors": "s6f",
+        "comment": "s70",
+        "cover_url": "s71",
+        "editor": "s72",
+        "editor_key": "s73",
+        "id": "FEED00",
+        "key": "s75",
+        "kind": "s76",
+        "timestamp": "s77",
+        "title": "s78"
+      },
+      "FEED01": {
+        "action": "sdc",
+        "authors": "sdd",
+        "comment": "sde",
+        "cover_url": "sdf",
+        "editor": "se0",
+        "editor_key": "se1",
+        "id": "FEED01",
+        "key": "se3",
+        "kind": "se4",
+        "timestamp": "se5",
+        "title": "se6"
+      },
+      "FEED02": {
+        "action": "s14a",
+        "authors": "s14b",
+        "comment": "s14c",
+        "cover_url": "s14d",
+        "editor": "s14e",
+        "editor_key": "s14f",
+        "id": "FEED02",
+        "key": "s151",
+        "kind": "s152",
+        "timestamp": "s153",
+        "title": "s154"
+      }
+    }
+  },
+  "new": {
+    "feed": {
+      "feed_ref01": {
+        "action": "s1b8",
+        "authors": "s1b9",
+        "comment": "s1ba",
+        "cover_url": "s1bb",
+        "editor": "s1bc",
+        "editor_key": "s1bd",
+        "key": "s1bf",
+        "kind": "s1c0",
+        "timestamp": "s1c1",
+        "title": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "GET /tasks/feed.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

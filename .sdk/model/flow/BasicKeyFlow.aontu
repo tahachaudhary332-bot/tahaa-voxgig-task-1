@@ -1,0 +1,32 @@
+# BasicKeyFlow
+
+main: kit: flow: BasicKeyFlow:
+{
+  entity: "key",
+  kind: "basic",
+  name: "BasicKeyFlow",
+  step: [
+    {
+      i: {
+        ref: "key_ref01",
+        srcdatavar: "key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        key: "key01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicKeyFlow"
+}

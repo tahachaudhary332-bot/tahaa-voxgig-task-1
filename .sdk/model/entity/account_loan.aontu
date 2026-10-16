@@ -1,0 +1,53 @@
+# Entity: account_loan
+
+main: kit: entity: account_loan: {
+
+  alias: field: {}
+
+  fields: {
+    loans: {
+      h: "Loans"
+      n: "loans"
+      r: true
+      sh: "List of the user's current loans, each containing ocaid, book, resource_type, expiry, etc."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "account_loan"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /account/loans.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/account/loans.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "loans.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.loans`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

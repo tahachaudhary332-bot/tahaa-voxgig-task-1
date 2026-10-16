@@ -1,0 +1,159 @@
+{
+  "existing": {
+    "list": {
+      "LIST00": {
+        "full_url": "s3c",
+        "id": "LIST00",
+        "last_update": "s3e",
+        "name": "s3f",
+        "seed_count": 64,
+        "url": "s41",
+        "username": "USERNAME01",
+        "series_id": "SERIES01",
+        "author_id": "AUTHOR01",
+        "edition_id": "EDITION01",
+        "subject_key": "SUBJECT_KEY01",
+        "work_id": "WORK01",
+        "list_id": "LIST01"
+      },
+      "LIST01": {
+        "full_url": "s78",
+        "id": "LIST01",
+        "last_update": "s7a",
+        "name": "s7b",
+        "seed_count": 124,
+        "url": "s7d",
+        "username": "USERNAME01",
+        "series_id": "SERIES01",
+        "author_id": "AUTHOR01",
+        "edition_id": "EDITION01",
+        "subject_key": "SUBJECT_KEY01",
+        "work_id": "WORK01",
+        "list_id": "LIST01"
+      },
+      "LIST02": {
+        "full_url": "sb4",
+        "id": "LIST02",
+        "last_update": "sb6",
+        "name": "sb7",
+        "seed_count": 184,
+        "url": "sb9",
+        "username": "USERNAME01",
+        "series_id": "SERIES01",
+        "author_id": "AUTHOR01",
+        "edition_id": "EDITION01",
+        "subject_key": "SUBJECT_KEY01",
+        "work_id": "WORK01",
+        "list_id": "LIST01"
+      }
+    }
+  },
+  "new": {
+    "list": {
+      "list_ref01": {
+        "full_url": "sf0",
+        "last_update": "sf2",
+        "name": "sf3",
+        "seed_count": 244,
+        "url": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /people/{username}/lists/{list_id}/delete.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /people/{username}/lists/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /people/{username}/series/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /lists/{list_id}/delete.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /lists/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /series/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /authors/OL{author_id}A/lists.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /books/OL{edition_id}M/lists.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subjects/{subject_key}/lists.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /people/{username}/lists.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /works/OL{work_id}W/lists.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /people/{username}/lists/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /people/{username}/lists/{list_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /people/{username}/series/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /lists/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /lists/{list_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /series/{list_id}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /series/{olid}/seeds.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /search/lists.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

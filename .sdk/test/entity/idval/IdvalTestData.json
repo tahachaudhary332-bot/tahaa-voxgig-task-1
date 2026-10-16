@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "idval": {
+      "IDVAL00": {
+        "idtype": "IDTYPE01",
+        "idval": "IDVAL01",
+        "volume_id": "VOLUME01",
+        "id": "IDVAL00"
+      },
+      "IDVAL01": {
+        "idtype": "IDTYPE01",
+        "idval": "IDVAL01",
+        "volume_id": "VOLUME01",
+        "id": "IDVAL01"
+      },
+      "IDVAL02": {
+        "idtype": "IDTYPE01",
+        "idval": "IDVAL01",
+        "volume_id": "VOLUME01",
+        "id": "IDVAL02"
+      }
+    }
+  },
+  "new": {
+    "idval": {
+      "idval_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/volumes/{brief_or_full}/{idtype}/{idval}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

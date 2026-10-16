@@ -1,0 +1,41 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "openlibrary@archive.org"
+        name: "Open Library Team"
+        url: "https://openlibrary.org/"
+      }
+      description: "The Open Library API provides comprehensive access to library catalog data including books, authors, works, lists, and user data. Supports both public and authenticated endpoints with full data validation and type safety."
+      license: {
+        name: "AGPL-3.0"
+        url: "https://github.com/internetarchive/openlibrary/blob/master/LICENSE"
+      }
+      security: {
+        in: "cookie"
+        name: "session"
+        prefix: ""
+        scheme: "APIKeyCookie"
+        type: "apiKey"
+      }
+      servers: [
+        {
+          url: "{base}"
+          variables: {
+            base: {
+              description: "The base URL of the API, which its definition does not name."
+            }
+          }
+        }
+      ]
+      summary: "The Open Library API provides comprehensive access to library catalog data including books, authors, works, lists, and user data."
+      title: "Open Library API"
+      version: "1.0.0"
+      website: "https://openlibrary.org/"
+    }
+  }
+}
+

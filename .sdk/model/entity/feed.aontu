@@ -1,0 +1,137 @@
+# Entity: feed
+
+main: kit: entity: feed: {
+
+  alias: field: {}
+
+  fields: {
+    action: {
+      h: "Action"
+      n: "action"
+      r: true
+      t: "`$STRING`"
+    }
+    authors: {
+      h: "Authors"
+      n: "authors"
+      r: true
+      t: "`$STRING`"
+    }
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: true
+      t: "`$STRING`"
+    }
+    cover_url: {
+      h: "Cover Url"
+      n: "cover_url"
+      r: true
+      t: "`$STRING`"
+    }
+    editor: {
+      h: "Editor"
+      n: "editor"
+      r: true
+      t: "`$STRING`"
+    }
+    editor_key: {
+      h: "Editor Key"
+      n: "editor_key"
+      r: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: true
+      t: "`$STRING`"
+    }
+    kind: {
+      h: "Kind"
+      n: "kind"
+      r: true
+      t: "`$STRING`"
+    }
+    timestamp: {
+      h: "Timestamp"
+      n: "timestamp"
+      r: true
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "feed"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /tasks/feed.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/tasks/feed.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "tasks"
+            }
+            {
+              lit: "feed.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.rows`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

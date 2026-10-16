@@ -1,0 +1,93 @@
+# Entity: language
+
+main: kit: entity: language: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      t: "`$INTEGER`"
+    }
+    ebook_edition_count: {
+      h: "Ebook Edition Count"
+      n: "ebook_edition_count"
+      r: true
+      t: "`$INTEGER`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: true
+      t: "`$STRING`"
+    }
+    marc_code: {
+      h: "Marc Code"
+      n: "marc_code"
+      r: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "language"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /languages.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 15
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "count"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/languages.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "languages.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

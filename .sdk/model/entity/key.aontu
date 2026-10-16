@@ -1,0 +1,213 @@
+# Entity: key
+
+main: kit: entity: key: {
+
+  alias: field: {}
+
+  name: "key"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /publishers/{key}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "key"
+                or: "key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "detail"
+                or: "details"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "has_fulltext"
+                or: "has_fulltext"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 12
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "published_in"
+                or: "published_in"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: "editions"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/publishers/{key}.json"
+          q: {
+            exist: [
+              "key"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "publishers"
+            }
+            {
+              lit: "{key}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /subjects/{key}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "key"
+                or: "key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "detail"
+                or: "details"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "has_fulltext"
+                or: "has_fulltext"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 12
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "published_in"
+                or: "published_in"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: "editions"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/subjects/{key}.json"
+          q: {
+            exist: [
+              "key"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "subjects"
+            }
+            {
+              lit: "{key}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

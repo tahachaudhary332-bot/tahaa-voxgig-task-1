@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "language": {
+      "LANGUAGE00": {
+        "count": 50,
+        "ebook_edition_count": 51,
+        "key": "s34",
+        "marc_code": "s35",
+        "name": "s36"
+      },
+      "LANGUAGE01": {
+        "count": 100,
+        "ebook_edition_count": 101,
+        "key": "s66",
+        "marc_code": "s67",
+        "name": "s68"
+      },
+      "LANGUAGE02": {
+        "count": 150,
+        "ebook_edition_count": 151,
+        "key": "s98",
+        "marc_code": "s99",
+        "name": "s9a"
+      }
+    }
+  },
+  "new": {
+    "language": {
+      "language_ref01": {
+        "count": 200,
+        "ebook_edition_count": 201,
+        "key": "sca",
+        "marc_code": "scb",
+        "name": "scc"
+      }
+    }
+  },
+  "requests": {
+    "GET /languages.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

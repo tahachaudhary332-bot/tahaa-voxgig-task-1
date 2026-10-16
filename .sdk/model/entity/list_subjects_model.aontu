@@ -1,0 +1,255 @@
+# Entity: list_subjects_model
+
+main: kit: entity: list_subjects_model: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    links: {
+      h: "Links"
+      n: "links"
+      r: true
+      t: "`$OBJECT`"
+    }
+    people: {
+      h: "People"
+      n: "people"
+      r: true
+      t: "`$ARRAY`"
+    }
+    places: {
+      h: "Places"
+      n: "places"
+      r: true
+      t: "`$ARRAY`"
+    }
+    subjects: {
+      h: "Subjects"
+      n: "subjects"
+      r: true
+      t: "`$ARRAY`"
+    }
+    times: {
+      h: "Times"
+      n: "times"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_subjects_model"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /people/{username}/lists/{olid}/subjects.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/people/{username}/lists/{olid}/subjects.json"
+          q: {
+            "$action": "subjects.json"
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "subjects.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /lists/{olid}/subjects.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/lists/{olid}/subjects.json"
+          q: {
+            "$action": "subjects.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "subjects.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /series/{olid}/subjects.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "series_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/series/{olid}/subjects.json"
+          q: {
+            exist: [
+              "series_id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "series_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "series"
+            }
+            {
+              var: "series_id"
+            }
+            {
+              lit: "subjects.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

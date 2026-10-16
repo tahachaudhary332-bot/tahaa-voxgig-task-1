@@ -1,0 +1,135 @@
+# Entity: reading_log
+
+main: kit: entity: reading_log: {
+
+  alias: field: {}
+
+  fields: {
+    logged_date: {
+      h: "Logged Date"
+      n: "logged_date"
+      r: true
+      t: "`$ANY`"
+    }
+    logged_edition: {
+      h: "Logged Edition"
+      n: "logged_edition"
+      r: true
+      t: "`$ANY`"
+    }
+    work: {
+      h: "Work"
+      n: "work"
+      r: true
+      sh: "Work data in reading log."
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "reading_log"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /people/{username}/books/{key}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "key"
+                or: "key"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "everything"
+                k: "query"
+                n: "mode"
+                or: "mode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: ""
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/people/{username}/books/{key}.json"
+          q: {
+            exist: [
+              "key"
+              "username"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "books"
+            }
+            {
+              lit: "{key}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.reading_log_entries`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

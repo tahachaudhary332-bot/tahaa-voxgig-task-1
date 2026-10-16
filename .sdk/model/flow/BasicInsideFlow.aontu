@@ -1,0 +1,28 @@
+# BasicInsideFlow
+
+main: kit: flow: BasicInsideFlow:
+{
+  entity: "inside",
+  kind: "basic",
+  name: "BasicInsideFlow",
+  step: [
+    {
+      i: {
+        ref: "inside_ref01",
+        srcdatavar: "inside_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-inside_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInsideFlow"
+}

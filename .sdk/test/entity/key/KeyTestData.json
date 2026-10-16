@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "key": {
+      "KEY00": {
+        "key": "KEY01",
+        "id": "KEY00"
+      },
+      "KEY01": {
+        "key": "KEY01",
+        "id": "KEY01"
+      },
+      "KEY02": {
+        "key": "KEY01",
+        "id": "KEY02"
+      }
+    }
+  },
+  "new": {
+    "key": {
+      "key_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /publishers/{key}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /subjects/{key}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

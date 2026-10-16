@@ -1,0 +1,32 @@
+# BasicGraphiteFlow
+
+main: kit: flow: BasicGraphiteFlow:
+{
+  entity: "graphite",
+  kind: "basic",
+  name: "BasicGraphiteFlow",
+  step: [
+    {
+      i: {
+        ref: "graphite_ref01",
+        srcdatavar: "graphite_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "graphite01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-graphite_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGraphiteFlow"
+}

@@ -1,0 +1,46 @@
+# Entity: logout
+
+main: kit: entity: logout: {
+
+  alias: field: {}
+
+  name: "logout"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /account/logout"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/account/logout"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "logout"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

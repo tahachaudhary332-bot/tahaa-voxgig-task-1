@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "req": {
+      "REQ00": {
+        "req": "REQ01",
+        "volume_id": "VOLUME01",
+        "id": "REQ00"
+      },
+      "REQ01": {
+        "req": "REQ01",
+        "volume_id": "VOLUME01",
+        "id": "REQ01"
+      },
+      "REQ02": {
+        "req": "REQ01",
+        "volume_id": "VOLUME01",
+        "id": "REQ02"
+      }
+    }
+  },
+  "new": {
+    "req": {
+      "req_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/volumes/{brief_or_full}/json/{req}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

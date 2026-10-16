@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "docs": [],
+        "documentation_url": "s51",
+        "numFound": 82,
+        "numFoundExact": false,
+        "num_found": 84,
+        "offset": 85,
+        "q": "s56",
+        "start": 87,
+        "id": "SEARCH00"
+      },
+      "SEARCH01": {
+        "docs": [],
+        "documentation_url": "sa1",
+        "numFound": 162,
+        "numFoundExact": false,
+        "num_found": 164,
+        "offset": 165,
+        "q": "sa6",
+        "start": 167,
+        "id": "SEARCH01"
+      },
+      "SEARCH02": {
+        "docs": [],
+        "documentation_url": "sf1",
+        "numFound": 242,
+        "numFoundExact": false,
+        "num_found": 244,
+        "offset": 245,
+        "q": "sf6",
+        "start": 247,
+        "id": "SEARCH02"
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "docs": [],
+        "documentation_url": "s141",
+        "numFound": 322,
+        "numFoundExact": false,
+        "num_found": 324,
+        "offset": 325,
+        "q": "s146",
+        "start": 327
+      }
+    }
+  },
+  "requests": {
+    "GET /search.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /search/editions.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

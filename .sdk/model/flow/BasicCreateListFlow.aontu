@@ -1,0 +1,22 @@
+# BasicCreateListFlow
+
+main: kit: flow: BasicCreateListFlow:
+{
+  entity: "create_list",
+  kind: "basic",
+  name: "BasicCreateListFlow",
+  step: [
+    {
+      i: {
+        ref: "create_list_ref01"
+      }
+
+      m: {
+        username: "username01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCreateListFlow"
+}

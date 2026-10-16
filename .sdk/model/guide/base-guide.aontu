@@ -1,0 +1,295 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 28
+  metrics: count: path: 49
+  metrics: count: method: 58
+
+  entity: account_loan: {
+    path: "/account/loans.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.loans`")|top
+    }
+  }
+
+  entity: account_loan_history: {
+    path: "/account/loan-history.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.loans_history`")|top
+    }
+  }
+
+  entity: archiveorg: {
+    path: "/cdn/archive.org/{filename}": {
+      rename: param: "filename": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: author: {
+    path: "/search/authors.json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: book: {
+    path: "/api/books.json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: borrow: {
+    path: "/books/{olid}/{slug}/borrow": {
+      rename: param: "olid": *"book_id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: check_in: {
+    path: "/check-ins/{check_in_id}": {
+      rename: param: "check_in_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/works/OL{work_id}W/check-ins": {
+      op: create: method: *POST
+    }
+    path: "/works/OL{work_id}W/check-ins.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: create_list: {
+    path: "/people/{username}/lists.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: feed: {
+    path: "/tasks/feed.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.rows`")|top
+    }
+  }
+
+  entity: graphite: {
+    path: "/cdn/graphite/{name}": {
+      rename: param: "name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: health: {
+    path: "/health": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: ian: {
+    path: "/borrow/ia/{ocaid}": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: idval: {
+    path: "/api/volumes/{brief_or_full}/{idtype}/{idval}.json": {
+      rename: param: "brief_or_full": *"volume_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: import: {
+    path: "/import/preview.json": {
+      action: "preview": {}
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: inside: {
+    path: "/search/inside.json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: key: {
+    path: "/publishers/{key}.json": {
+      op: load: method: *GET
+    }
+    path: "/subjects/{key}.json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: language: {
+    path: "/languages.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list: {
+    path: "/authors/OL{author_id}A/lists.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+    path: "/books/OL{edition_id}M/lists.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+    path: "/lists/{list_id}.json": {
+      op: load: method: *GET
+    }
+    path: "/lists/{list_id}/delete.json": {
+      action: "delete": {}
+      rename: param: "list_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/lists/{olid}/seeds.json": {
+      action: "seed": {}
+      rename: param: "olid": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/people/{username}/lists.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+    path: "/people/{username}/lists/{list_id}.json": {
+      op: load: method: *GET
+    }
+    path: "/people/{username}/lists/{list_id}/delete.json": {
+      action: "delete": {}
+      rename: param: "list_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/people/{username}/lists/{olid}/seeds.json": {
+      action: "seed": {}
+      rename: param: "olid": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/people/{username}/series/{olid}/seeds.json": {
+      rename: param: "olid": *"series_id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/search/lists.json": {
+      op: load: method: *GET
+    }
+    path: "/series/{list_id}.json": {
+      op: load: method: *GET
+    }
+    path: "/series/{olid}/seeds.json": {
+      rename: param: "olid": *"series_id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/subjects/{subject_key}/lists.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+    path: "/works/OL{work_id}W/lists.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+  }
+
+  entity: list_editions_model: {
+    path: "/lists/{olid}/editions.json": {
+      action: "editions.json": {}
+      rename: param: "olid": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+    path: "/people/{username}/lists/{olid}/editions.json": {
+      action: "editions.json": {}
+      rename: param: "olid": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+    path: "/series/{olid}/editions.json": {
+      rename: param: "olid": *"series_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.entries`")|top
+    }
+  }
+
+  entity: list_subjects_model: {
+    path: "/lists/{olid}/subjects.json": {
+      action: "subjects.json": {}
+      rename: param: "olid": *"id"
+      op: list: method: *GET
+    }
+    path: "/people/{username}/lists/{olid}/subjects.json": {
+      action: "subjects.json": {}
+      rename: param: "olid": *"id"
+      op: list: method: *GET
+    }
+    path: "/series/{olid}/subjects.json": {
+      rename: param: "olid": *"series_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: login: {
+    path: "/account/login": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: logout: {
+    path: "/account/logout": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: merge: {
+    path: "/authors/merge.json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: reading_goal: {
+    path: "/reading-goal.json": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.goal`")|top
+    }
+  }
+
+  entity: reading_log: {
+    path: "/people/{username}/books/{key}.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.reading_log_entries`")|top
+    }
+  }
+
+  entity: req: {
+    path: "/api/volumes/{brief_or_full}/json/{req}.json": {
+      rename: param: "brief_or_full": *"volume_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: search: {
+    path: "/search.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.docs`")|top
+    }
+    path: "/search/editions.json": {
+      action: "edition": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: subject: {
+    path: "/search/subjects.json": {
+      op: load: method: *GET
+    }
+  }
+
+}

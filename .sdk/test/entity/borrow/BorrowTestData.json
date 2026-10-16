@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "borrow": {
+      "BORROW00": {
+        "book_id": "BOOK01",
+        "slug": "SLUG01",
+        "id": "BORROW00"
+      },
+      "BORROW01": {
+        "book_id": "BOOK01",
+        "slug": "SLUG01",
+        "id": "BORROW01"
+      },
+      "BORROW02": {
+        "book_id": "BOOK01",
+        "slug": "SLUG01",
+        "id": "BORROW02"
+      }
+    }
+  },
+  "new": {
+    "borrow": {
+      "borrow_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /books/{olid}/{slug}/borrow": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /books/{olid}/{slug}/borrow": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+# Entity: import
+
+main: kit: entity: import: {
+
+  alias: field: {}
+
+  name: "import"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /import/preview.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/import/preview.json"
+          q: {
+            "$action": "preview"
+          }
+          rb: {
+            fields: [
+              {
+                name: "identifier"
+              }
+              {
+                name: "provider"
+              }
+              {
+                name: "save"
+              }
+              {
+                name: "source"
+              }
+            ]
+            kind: "form"
+            media: "application/x-www-form-urlencoded"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "import"
+            }
+            {
+              lit: "preview.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /import/preview.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "identifier"
+                or: "identifier"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "provider"
+                or: "provider"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "source"
+                or: "source"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/import/preview.json"
+          q: {
+            "$action": "preview"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "import"
+            }
+            {
+              lit: "preview.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

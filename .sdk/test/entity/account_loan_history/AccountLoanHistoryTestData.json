@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "account_loan_history": {
+      "ACCOUNT_LOAN_HISTORY00": {
+        "id": "ACCOUNT_LOAN_HISTORY00"
+      },
+      "ACCOUNT_LOAN_HISTORY01": {
+        "id": "ACCOUNT_LOAN_HISTORY01"
+      },
+      "ACCOUNT_LOAN_HISTORY02": {
+        "id": "ACCOUNT_LOAN_HISTORY02"
+      }
+    }
+  },
+  "new": {
+    "account_loan_history": {
+      "account_loan_history_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /account/loan-history.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# BasicSubjectFlow
+
+main: kit: flow: BasicSubjectFlow:
+{
+  entity: "subject",
+  kind: "basic",
+  name: "BasicSubjectFlow",
+  step: [
+    {
+      i: {
+        ref: "subject_ref01",
+        srcdatavar: "subject_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-subject_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubjectFlow"
+}

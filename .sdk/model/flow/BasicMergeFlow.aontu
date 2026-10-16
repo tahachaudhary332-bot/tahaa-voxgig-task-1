@@ -1,0 +1,18 @@
+# BasicMergeFlow
+
+main: kit: flow: BasicMergeFlow:
+{
+  entity: "merge",
+  kind: "basic",
+  name: "BasicMergeFlow",
+  step: [
+    {
+      i: {
+        ref: "merge_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicMergeFlow"
+}

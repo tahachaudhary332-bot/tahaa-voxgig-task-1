@@ -1,0 +1,33 @@
+# BasicReqFlow
+
+main: kit: flow: BasicReqFlow:
+{
+  entity: "req",
+  kind: "basic",
+  name: "BasicReqFlow",
+  step: [
+    {
+      i: {
+        ref: "req_ref01",
+        srcdatavar: "req_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "req01",
+        req: "req01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-req_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReqFlow"
+}

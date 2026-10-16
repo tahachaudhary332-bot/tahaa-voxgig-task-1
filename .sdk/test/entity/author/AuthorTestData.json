@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "author": {
+      "AUTHOR00": {
+        "id": "AUTHOR00"
+      },
+      "AUTHOR01": {
+        "id": "AUTHOR01"
+      },
+      "AUTHOR02": {
+        "id": "AUTHOR02"
+      }
+    }
+  },
+  "new": {
+    "author": {
+      "author_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /search/authors.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

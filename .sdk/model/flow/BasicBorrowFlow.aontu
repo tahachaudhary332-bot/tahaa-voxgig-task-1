@@ -1,0 +1,46 @@
+# BasicBorrowFlow
+
+main: kit: flow: BasicBorrowFlow:
+{
+  entity: "borrow",
+  kind: "basic",
+  name: "BasicBorrowFlow",
+  step: [
+    {
+      i: {
+        ref: "borrow_ref01"
+      }
+
+      m: {
+        book_id: "book01",
+        slug: "slug01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "borrow_ref01",
+        srcdatavar: "borrow_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        book_id: "book01",
+        id: "borrow01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-borrow_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBorrowFlow"
+}

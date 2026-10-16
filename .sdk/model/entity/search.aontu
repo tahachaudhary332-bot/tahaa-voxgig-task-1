@@ -1,0 +1,454 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: {
+    docs: {
+      h: "Docs"
+      n: "docs"
+      r: false
+      t: "`$ARRAY`"
+    }
+    documentation_url: {
+      h: "Documentation Url"
+      n: "documentation_url"
+      r: false
+      t: "`$STRING`"
+    }
+    numFound: {
+      h: "Num Found"
+      n: "numFound"
+      r: true
+      t: "`$INTEGER`"
+    }
+    numFoundExact: {
+      h: "Num Found Exact"
+      n: "numFoundExact"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    num_found: {
+      h: "Num Found"
+      n: "num_found"
+      r: true
+      t: "`$INTEGER`"
+    }
+    offset: {
+      h: "Offset"
+      n: "offset"
+      r: true
+      t: "`$INTEGER`"
+    }
+    q: {
+      h: "Q"
+      n: "q"
+      r: true
+      t: "`$STRING`"
+    }
+    start: {
+      h: "Start"
+      n: "start"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "search"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /search.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "author"
+                or: "author"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "author_facet"
+                or: "author_facet"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "author_key"
+                or: "author_key"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "contributor"
+                or: "contributor"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: [
+                  "author_key"
+                  "author_name"
+                  "cover_edition_key"
+                  "cover_height"
+                  "cover_i"
+                  "cover_width"
+                  "ebook_access"
+                  "edition_count"
+                  "first_publish_year"
+                  "has_fulltext"
+                  "ia"
+                  "ia_collection"
+                  "id_cita_press"
+                  "id_librivox"
+                  "id_openstax"
+                  "id_project_gutenberg"
+                  "id_project_runeberg"
+                  "id_standard_ebooks"
+                  "id_wikisource"
+                  "key"
+                  "language"
+                  "lending_edition_s"
+                  "lending_identifier_s"
+                  "public_scan_b"
+                  "series_key"
+                  "series_name"
+                  "series_position"
+                  "subtitle"
+                  "title"
+                ]
+                k: "query"
+                n: "field"
+                or: "fields"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "first_publish_year"
+                or: "first_publish_year"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "has_fulltext"
+                or: "has_fulltext"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "isbn"
+                or: "isbn"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "lccn"
+                or: "lccn"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "oclc"
+                or: "oclc"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "person"
+                or: "person"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "person_facet"
+                or: "person_facet"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "place"
+                or: "place"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "place_facet"
+                or: "place_facet"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "print_disabled"
+                or: "print_disabled"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "public_scan"
+                or: "public_scan"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "public_scan_b"
+                or: "public_scan_b"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "publisher"
+                or: "publisher"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "publisher_facet"
+                or: "publisher_facet"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: ""
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "query"
+                or: "query"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 3
+                k: "query"
+                n: "spellcheck_count"
+                or: "spellcheck_count"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "subject"
+                or: "subject"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "subject_facet"
+                or: "subject_facet"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "time"
+                or: "time"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "time_facet"
+                or: "time_facet"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "title"
+                or: "title"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "search.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.docs`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /search/editions.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: [
+                  "cover_i"
+                  "ebook_access"
+                  "isbn"
+                  "key"
+                  "language"
+                  "publish_date"
+                  "publisher"
+                  "subtitle"
+                  "title"
+                  "work_key"
+                ]
+                k: "query"
+                n: "field"
+                or: "fields"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: ""
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: ""
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "work_key"
+                or: "work_key"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search/editions.json"
+          q: {
+            "$action": "edition"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "editions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

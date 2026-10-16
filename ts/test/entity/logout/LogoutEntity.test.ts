@@ -1,0 +1,169 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { OpenLibrarySdkSDK, BaseFeature, config, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('LogoutEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when OPEN_LIBRARY_SDK_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OPEN_LIBRARY_SDK_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = OpenLibrarySdkSDK.test()
+    const ent = testsdk.Logout()
+    assert(null != ent)
+  })
+
+
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.OPEN_LIBRARY_SDK_TEST_LIVE
+    for (const op of ['create']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'logout.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{},"name":"logout","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /account/logout","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/account/logout","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"account"},{"lit":"logout"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"}},"relations":{"ancestors":[]},"key$":"logout","name__orig":"logout","Name":"Logout","name_":"logout","name-":"logout","NAME":"LOGOUT","index$":21}, {"active":true,"entity":"logout","key$":"BasicLogoutFlow","kind":"basic","name":"BasicLogoutFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"logout_ref01"},"m":{},"o":"create","s":[],"v":[]}]}, 'Logout', {"POST /account/logout":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const logout_ref01_ent = client.Logout()
+    let logout_ref01_data = setup.data.new.logout['logout_ref01']
+
+    logout_ref01_data = (await logout_ref01_ent.create(logout_ref01_data)).data()
+    assert(null != logout_ref01_data)
+
+
+  })
+})
+
+
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/logout/LogoutTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = OpenLibrarySdkSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['logout01','logout02','logout03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'OPEN_LIBRARY_SDK_TEST_LOGOUT_ENTID': idmap,
+    'OPEN_LIBRARY_SDK_TEST_LIVE': 'FALSE',
+    'OPEN_LIBRARY_SDK_TEST_EXPLAIN': 'FALSE',
+    'OPEN_LIBRARY_SDK_APIKEY': '',
+    'OPEN_LIBRARY_SDK_SERVER_BASE': "",
+  })
+
+  idmap = env['OPEN_LIBRARY_SDK_TEST_LOGOUT_ENTID']
+
+  const live = 'TRUE' === env.OPEN_LIBRARY_SDK_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['OPEN_LIBRARY_SDK_TEST_LOGOUT_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new OpenLibrarySdkSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.OPEN_LIBRARY_SDK_APIKEY,
+        server: {
+          base: env.OPEN_LIBRARY_SDK_SERVER_BASE,
+        },
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.OPEN_LIBRARY_SDK_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

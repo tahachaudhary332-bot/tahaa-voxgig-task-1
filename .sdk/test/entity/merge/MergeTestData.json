@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "merge": {
+      "MERGE00": {
+        "comment": "s32",
+        "duplicates": [],
+        "master": "s34",
+        "mrid": "s35",
+        "olids": "s36",
+        "id": "MERGE00"
+      },
+      "MERGE01": {
+        "comment": "s64",
+        "duplicates": [],
+        "master": "s66",
+        "mrid": "s67",
+        "olids": "s68",
+        "id": "MERGE01"
+      },
+      "MERGE02": {
+        "comment": "s96",
+        "duplicates": [],
+        "master": "s98",
+        "mrid": "s99",
+        "olids": "s9a",
+        "id": "MERGE02"
+      }
+    }
+  },
+  "new": {
+    "merge": {
+      "merge_ref01": {
+        "comment": "sc8",
+        "duplicates": [],
+        "master": "sca",
+        "mrid": "scb",
+        "olids": "scc"
+      }
+    }
+  },
+  "requests": {
+    "POST /authors/merge.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

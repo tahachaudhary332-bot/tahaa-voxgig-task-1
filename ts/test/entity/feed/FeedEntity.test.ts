@@ -1,0 +1,225 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { OpenLibrarySdkSDK, BaseFeature, config, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('FeedEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when OPEN_LIBRARY_SDK_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OPEN_LIBRARY_SDK_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = OpenLibrarySdkSDK.test()
+    const ent = testsdk.Feed()
+    assert(null != ent)
+  })
+
+
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('feed hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of OpenLibrarySdkSDK.test(offline).Feed().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of OpenLibrarySdkSDK.test(offline).Feed()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = OpenLibrarySdkSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Feed().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of OpenLibrarySdkSDK.test().Feed().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new OpenLibrarySdkSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Feed().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Feed().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = OpenLibrarySdkSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Feed().list({"limit":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.OPEN_LIBRARY_SDK_TEST_LIVE
+    for (const op of ['list']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'feed.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"action":{"a":true,"h":"Action","n":"action","r":true,"t":"`$STRING`","key$":"action","index$":0},"authors":{"a":true,"h":"Authors","n":"authors","r":true,"t":"`$STRING`","key$":"authors","index$":1},"comment":{"a":true,"h":"Comment","n":"comment","r":true,"t":"`$STRING`","key$":"comment","index$":2},"cover_url":{"a":true,"h":"Cover Url","n":"cover_url","r":true,"t":"`$STRING`","key$":"cover_url","index$":3},"editor":{"a":true,"h":"Editor","n":"editor","r":true,"t":"`$STRING`","key$":"editor","index$":4},"editor_key":{"a":true,"h":"Editor Key","n":"editor_key","r":true,"t":"`$STRING`","key$":"editor_key","index$":5},"id":{"a":true,"h":"Id","n":"id","r":true,"t":"`$STRING`","key$":"id","index$":6},"key":{"a":true,"h":"Key","n":"key","r":true,"t":"`$STRING`","key$":"key","index$":7},"kind":{"a":true,"h":"Kind","n":"kind","r":true,"t":"`$STRING`","key$":"kind","index$":8},"timestamp":{"a":true,"h":"Timestamp","n":"timestamp","r":true,"t":"`$STRING`","key$":"timestamp","index$":9},"title":{"a":true,"h":"Title","n":"title","r":true,"t":"`$STRING`","key$":"title","index$":10}},"id":{"field":"id","name":"id"},"name":"feed","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /tasks/feed.json","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":20,"k":"query","n":"limit","or":"limit","r":false,"t":"`$INTEGER`","index$":0},{"a":true,"ex":0,"k":"query","n":"offset","or":"offset","r":false,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"GET","o":"/tasks/feed.json","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"tasks"},{"lit":"feed.json"}],"t":{"req":"`reqdata`","res":"`body.rows`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"feed","name__orig":"feed","Name":"Feed","name_":"feed","name-":"feed","NAME":"FEED","index$":8}, {"active":true,"entity":"feed","key$":"BasicFeedFlow","kind":"basic","name":"BasicFeedFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"feed_ref01"}}]}]}, 'Feed', {"GET /tasks/feed.json":{"protocol":"http","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":50,"exclusiveMinimum":0,"default":20,"title":"Limit"},"index$":0},{"name":"offset","in":"query","required":false,"schema":{"type":"integer","minimum":0,"description":"Where in the rotation to start.","default":0,"title":"Offset"},"description":"Where in the rotation to start.","index$":1}]}}, { strict: LIVE_STRICT, t })
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+    let feed_ref01_data = Object.values(setup.data.existing.feed)[0] as any
+
+    // LIST
+    const feed_ref01_ent = client.Feed()
+    const feed_ref01_match: any = {}
+
+    const feed_ref01_list = (await feed_ref01_ent.list(feed_ref01_match)).map((e: any) => e.data())
+
+
+  })
+})
+
+
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/feed/FeedTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = OpenLibrarySdkSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['feed01','feed02','feed03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'OPEN_LIBRARY_SDK_TEST_FEED_ENTID': idmap,
+    'OPEN_LIBRARY_SDK_TEST_LIVE': 'FALSE',
+    'OPEN_LIBRARY_SDK_TEST_EXPLAIN': 'FALSE',
+    'OPEN_LIBRARY_SDK_APIKEY': '',
+    'OPEN_LIBRARY_SDK_SERVER_BASE': "",
+  })
+
+  idmap = env['OPEN_LIBRARY_SDK_TEST_FEED_ENTID']
+
+  const live = 'TRUE' === env.OPEN_LIBRARY_SDK_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['OPEN_LIBRARY_SDK_TEST_FEED_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new OpenLibrarySdkSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.OPEN_LIBRARY_SDK_APIKEY,
+        server: {
+          base: env.OPEN_LIBRARY_SDK_SERVER_BASE,
+        },
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.OPEN_LIBRARY_SDK_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

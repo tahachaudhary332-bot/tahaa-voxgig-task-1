@@ -1,0 +1,26 @@
+# BasicListEditionsModelFlow
+
+main: kit: flow: BasicListEditionsModelFlow:
+{
+  entity: "list_editions_model",
+  kind: "basic",
+  name: "BasicListEditionsModelFlow",
+  step: [
+    {
+      m: {
+        series_id: "series01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_editions_model_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListEditionsModelFlow"
+}

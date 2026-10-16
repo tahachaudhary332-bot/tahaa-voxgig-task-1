@@ -1,0 +1,23 @@
+{
+  "files": [
+    "SUMMARY.md"
+  ],
+  "config": ".sdk/doc/qa/vale.ini",
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Day (1-31)",
+      "Edition OLID (for example",
+      "Event type enum value (1=start, 2=update, 3=finish)",
+      "Four-digit year (1-9999)",
+      "List of reading goals",
+      "List of the user&#39;s current loans, each containing ocaid, book, `resource_type`, expiry, etc.",
+      "Month (1-12)",
+      "Response status",
+      "Successful Response",
+      "The Open Library API provides comprehensive access to library catalog data including books, authors, works, lists, and user data. Supports both public and authenticated endpoints with full data validation and type safety.",
+      "The year for this reading goal (1-9999)",
+      "Work data in reading log."
+    ]
+  }
+}

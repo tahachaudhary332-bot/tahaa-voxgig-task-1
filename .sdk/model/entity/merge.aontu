@@ -1,0 +1,83 @@
+# Entity: merge
+
+main: kit: entity: merge: {
+
+  alias: field: {}
+
+  fields: {
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: false
+      t: "`$ANY`"
+    }
+    duplicates: {
+      h: "Duplicates"
+      n: "duplicates"
+      r: true
+      t: "`$ARRAY`"
+    }
+    master: {
+      h: "Master"
+      n: "master"
+      r: true
+      t: "`$STRING`"
+    }
+    mrid: {
+      h: "Mrid"
+      n: "mrid"
+      r: false
+      t: "`$ANY`"
+    }
+    olids: {
+      h: "Olids"
+      n: "olids"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "merge"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "comment"
+            "duplicates"
+            "master"
+            "mrid"
+            "olids"
+          ]
+          co: {
+            id: "POST /authors/merge.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/authors/merge.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "authors"
+            }
+            {
+              lit: "merge.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,44 @@
+# BasicIanFlow
+
+main: kit: flow: BasicIanFlow:
+{
+  entity: "ian",
+  kind: "basic",
+  name: "BasicIanFlow",
+  step: [
+    {
+      i: {
+        ref: "ian_ref01"
+      }
+
+      m: {
+        ocaid: "ocaid01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "ian_ref01",
+        srcdatavar: "ian_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "ian01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ian_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIanFlow"
+}

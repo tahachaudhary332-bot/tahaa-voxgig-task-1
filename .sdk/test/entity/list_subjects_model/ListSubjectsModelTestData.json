@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "list_subjects_model": {
+      "LIST_SUBJECTS_MODEL00": {
+        "id": "LIST_SUBJECTS_MODEL00",
+        "links": {},
+        "people": [],
+        "places": [],
+        "subjects": [],
+        "times": [],
+        "username": "USERNAME01",
+        "series_id": "SERIES01"
+      },
+      "LIST_SUBJECTS_MODEL01": {
+        "id": "LIST_SUBJECTS_MODEL01",
+        "links": {},
+        "people": [],
+        "places": [],
+        "subjects": [],
+        "times": [],
+        "username": "USERNAME01",
+        "series_id": "SERIES01"
+      },
+      "LIST_SUBJECTS_MODEL02": {
+        "id": "LIST_SUBJECTS_MODEL02",
+        "links": {},
+        "people": [],
+        "places": [],
+        "subjects": [],
+        "times": [],
+        "username": "USERNAME01",
+        "series_id": "SERIES01"
+      }
+    }
+  },
+  "new": {
+    "list_subjects_model": {
+      "list_subjects_model_ref01": {
+        "links": {},
+        "people": [],
+        "places": [],
+        "subjects": [],
+        "times": []
+      }
+    }
+  },
+  "requests": {
+    "GET /people/{username}/lists/{olid}/subjects.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /lists/{olid}/subjects.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /series/{olid}/subjects.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

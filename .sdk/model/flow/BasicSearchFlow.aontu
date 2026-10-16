@@ -1,0 +1,40 @@
+# BasicSearchFlow
+
+main: kit: flow: BasicSearchFlow:
+{
+  entity: "search",
+  kind: "basic",
+  name: "BasicSearchFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "search_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "search_ref01",
+        srcdatavar: "search_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-search_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSearchFlow"
+}

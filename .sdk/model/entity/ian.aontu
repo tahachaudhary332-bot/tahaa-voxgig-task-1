@@ -1,0 +1,114 @@
+# Entity: ian
+
+main: kit: entity: ian: {
+
+  alias: field: {}
+
+  name: "ian"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /borrow/ia/{ocaid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "ocaid"
+                or: "ocaid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/borrow/ia/{ocaid}"
+          q: {
+            exist: [
+              "ocaid"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "borrow"
+            }
+            {
+              lit: "ia"
+            }
+            {
+              var: "ocaid"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /borrow/ia/{ocaid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "ocaid"
+                or: "ocaid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/borrow/ia/{ocaid}"
+          q: {
+            exist: [
+              "ocaid"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "borrow"
+            }
+            {
+              lit: "ia"
+            }
+            {
+              var: "ocaid"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

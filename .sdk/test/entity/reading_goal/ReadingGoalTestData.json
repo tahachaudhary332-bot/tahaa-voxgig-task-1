@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "reading_goal": {
+      "READING_GOAL00": {
+        "goal": 30,
+        "status": "s1f",
+        "year": 32,
+        "id": "READING_GOAL00"
+      },
+      "READING_GOAL01": {
+        "goal": 60,
+        "status": "s3d",
+        "year": 62,
+        "id": "READING_GOAL01"
+      },
+      "READING_GOAL02": {
+        "goal": 90,
+        "status": "s5b",
+        "year": 92,
+        "id": "READING_GOAL02"
+      }
+    }
+  },
+  "new": {
+    "reading_goal": {
+      "reading_goal_ref01": {
+        "goal": 120,
+        "status": "s79",
+        "year": 122
+      }
+    }
+  },
+  "requests": {
+    "POST /reading-goal.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reading-goal.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

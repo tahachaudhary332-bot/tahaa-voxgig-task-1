@@ -1,0 +1,34 @@
+# BasicIdvalFlow
+
+main: kit: flow: BasicIdvalFlow:
+{
+  entity: "idval",
+  kind: "basic",
+  name: "BasicIdvalFlow",
+  step: [
+    {
+      i: {
+        ref: "idval_ref01",
+        srcdatavar: "idval_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "idval01",
+        idval: "idval01",
+        volume_id: "volume01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-idval_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIdvalFlow"
+}

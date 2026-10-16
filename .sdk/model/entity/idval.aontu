@@ -1,0 +1,102 @@
+# Entity: idval
+
+main: kit: entity: idval: {
+
+  alias: field: {}
+
+  name: "idval"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/volumes/{brief_or_full}/{idtype}/{idval}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "idtype"
+                or: "idtype"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "idval"
+                or: "idval"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "volume_id"
+                or: "brief_or_full"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "show_all_item"
+                or: "show_all_items"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/volumes/{brief_or_full}/{idtype}/{idval}.json"
+          q: {
+            exist: [
+              "idtype"
+              "idval"
+              "volume_id"
+            ]
+          }
+          r: {
+            param: {
+              brief_or_full: "volume_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "volumes"
+            }
+            {
+              var: "volume_id"
+            }
+            {
+              var: "idtype"
+            }
+            {
+              lit: "{idval}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

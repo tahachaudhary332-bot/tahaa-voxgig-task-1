@@ -1,0 +1,279 @@
+# Entity: list_editions_model
+
+main: kit: entity: list_editions_model: {
+
+  alias: field: {}
+
+  fields: {
+    end: {
+      h: "End"
+      n: "end"
+      r: true
+      t: "`$INTEGER`"
+    }
+    entries: {
+      h: "Entries"
+      n: "entries"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    links: {
+      h: "Links"
+      n: "links"
+      r: true
+      t: "`$OBJECT`"
+    }
+    size: {
+      h: "Size"
+      n: "size"
+      r: true
+      t: "`$INTEGER`"
+    }
+    start: {
+      h: "Start"
+      n: "start"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_editions_model"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /people/{username}/lists/{olid}/editions.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "username"
+                or: "username"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/people/{username}/lists/{olid}/editions.json"
+          q: {
+            "$action": "editions.json"
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "people"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "editions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+        {
+          co: {
+            id: "GET /lists/{olid}/editions.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/lists/{olid}/editions.json"
+          q: {
+            "$action": "editions.json"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "lists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "editions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+        {
+          co: {
+            id: "GET /series/{olid}/editions.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "series_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/series/{olid}/editions.json"
+          q: {
+            exist: [
+              "series_id"
+            ]
+          }
+          r: {
+            param: {
+              olid: "series_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "series"
+            }
+            {
+              var: "series_id"
+            }
+            {
+              lit: "editions.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.entries`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

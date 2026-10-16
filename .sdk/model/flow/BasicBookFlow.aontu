@@ -1,0 +1,28 @@
+# BasicBookFlow
+
+main: kit: flow: BasicBookFlow:
+{
+  entity: "book",
+  kind: "basic",
+  name: "BasicBookFlow",
+  step: [
+    {
+      i: {
+        ref: "book_ref01",
+        srcdatavar: "book_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-book_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBookFlow"
+}

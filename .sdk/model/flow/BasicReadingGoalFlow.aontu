@@ -1,0 +1,30 @@
+# BasicReadingGoalFlow
+
+main: kit: flow: BasicReadingGoalFlow:
+{
+  entity: "reading_goal",
+  kind: "basic",
+  name: "BasicReadingGoalFlow",
+  step: [
+    {
+      i: {
+        ref: "reading_goal_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "reading_goal_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReadingGoalFlow"
+}

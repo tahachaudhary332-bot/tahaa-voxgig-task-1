@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "reading_log": {
+      "READING_LOG00": {
+        "logged_date": "s1e",
+        "logged_edition": "s1f",
+        "work": {},
+        "key": "KEY01",
+        "username": "USERNAME01"
+      },
+      "READING_LOG01": {
+        "logged_date": "s3c",
+        "logged_edition": "s3d",
+        "work": {},
+        "key": "KEY01",
+        "username": "USERNAME01"
+      },
+      "READING_LOG02": {
+        "logged_date": "s5a",
+        "logged_edition": "s5b",
+        "work": {},
+        "key": "KEY01",
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "reading_log": {
+      "reading_log_ref01": {
+        "logged_date": "s78",
+        "logged_edition": "s79",
+        "work": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /people/{username}/books/{key}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

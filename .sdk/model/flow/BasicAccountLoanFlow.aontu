@@ -1,0 +1,22 @@
+# BasicAccountLoanFlow
+
+main: kit: flow: BasicAccountLoanFlow:
+{
+  entity: "account_loan",
+  kind: "basic",
+  name: "BasicAccountLoanFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "account_loan_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccountLoanFlow"
+}

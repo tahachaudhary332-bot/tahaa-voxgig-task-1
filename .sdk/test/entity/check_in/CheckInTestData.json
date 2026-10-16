@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "check_in": {
+      "CHECK_IN00": {
+        "day": "s50",
+        "edition_key": "s51",
+        "event_id": "EVENT01",
+        "event_type": 83,
+        "id": "CHECK_IN00",
+        "month": "s55",
+        "status": "s56",
+        "year": 87,
+        "work_id": "WORK01"
+      },
+      "CHECK_IN01": {
+        "day": "sa0",
+        "edition_key": "sa1",
+        "event_id": "EVENT01",
+        "event_type": 163,
+        "id": "CHECK_IN01",
+        "month": "sa5",
+        "status": "sa6",
+        "year": 167,
+        "work_id": "WORK01"
+      },
+      "CHECK_IN02": {
+        "day": "sf0",
+        "edition_key": "sf1",
+        "event_id": "EVENT01",
+        "event_type": 243,
+        "id": "CHECK_IN02",
+        "month": "sf5",
+        "status": "sf6",
+        "year": 247,
+        "work_id": "WORK01"
+      }
+    }
+  },
+  "new": {
+    "check_in": {
+      "check_in_ref01": {
+        "day": "s140",
+        "edition_key": "s141",
+        "event_id": "EVENT01",
+        "event_type": 323,
+        "month": "s145",
+        "status": "s146",
+        "year": 327
+      }
+    }
+  },
+  "requests": {
+    "POST /works/OL{work_id}W/check-ins": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /works/OL{work_id}W/check-ins.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /check-ins/{check_in_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

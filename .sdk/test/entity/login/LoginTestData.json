@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "login": {
+      "LOGIN00": {
+        "id": "LOGIN00"
+      },
+      "LOGIN01": {
+        "id": "LOGIN01"
+      },
+      "LOGIN02": {
+        "id": "LOGIN02"
+      }
+    }
+  },
+  "new": {
+    "login": {
+      "login_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /account/login": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

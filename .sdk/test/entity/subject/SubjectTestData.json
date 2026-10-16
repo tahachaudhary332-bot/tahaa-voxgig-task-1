@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "subject": {
+      "SUBJECT00": {
+        "id": "SUBJECT00"
+      },
+      "SUBJECT01": {
+        "id": "SUBJECT01"
+      },
+      "SUBJECT02": {
+        "id": "SUBJECT02"
+      }
+    }
+  },
+  "new": {
+    "subject": {
+      "subject_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /search/subjects.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

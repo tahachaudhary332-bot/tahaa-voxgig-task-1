@@ -1,0 +1,27 @@
+# BasicReadingLogFlow
+
+main: kit: flow: BasicReadingLogFlow:
+{
+  entity: "reading_log",
+  kind: "basic",
+  name: "BasicReadingLogFlow",
+  step: [
+    {
+      m: {
+        key: "key01",
+        username: "username01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "reading_log_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReadingLogFlow"
+}

@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "list_editions_model": {
+      "LIST_EDITIONS_MODEL00": {
+        "end": 60,
+        "entries": [],
+        "id": "LIST_EDITIONS_MODEL00",
+        "links": {},
+        "size": 64,
+        "start": 65,
+        "username": "USERNAME01",
+        "series_id": "SERIES01"
+      },
+      "LIST_EDITIONS_MODEL01": {
+        "end": 120,
+        "entries": [],
+        "id": "LIST_EDITIONS_MODEL01",
+        "links": {},
+        "size": 124,
+        "start": 125,
+        "username": "USERNAME01",
+        "series_id": "SERIES01"
+      },
+      "LIST_EDITIONS_MODEL02": {
+        "end": 180,
+        "entries": [],
+        "id": "LIST_EDITIONS_MODEL02",
+        "links": {},
+        "size": 184,
+        "start": 185,
+        "username": "USERNAME01",
+        "series_id": "SERIES01"
+      }
+    }
+  },
+  "new": {
+    "list_editions_model": {
+      "list_editions_model_ref01": {
+        "end": 240,
+        "entries": [],
+        "links": {},
+        "size": 244,
+        "start": 245
+      }
+    }
+  },
+  "requests": {
+    "GET /people/{username}/lists/{olid}/editions.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /lists/{olid}/editions.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /series/{olid}/editions.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

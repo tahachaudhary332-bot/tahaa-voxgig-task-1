@@ -1,0 +1,149 @@
+# Entity: borrow
+
+main: kit: entity: borrow: {
+
+  alias: field: {}
+
+  name: "borrow"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /books/{olid}/{slug}/borrow"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "book_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/books/{olid}/{slug}/borrow"
+          q: {
+            exist: [
+              "book_id"
+              "slug"
+            ]
+          }
+          r: {
+            param: {
+              olid: "book_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "books"
+            }
+            {
+              var: "book_id"
+            }
+            {
+              var: "slug"
+            }
+            {
+              lit: "borrow"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /books/{olid}/{slug}/borrow"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "book_id"
+                or: "olid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/books/{olid}/{slug}/borrow"
+          q: {
+            exist: [
+              "book_id"
+              "slug"
+            ]
+          }
+          r: {
+            param: {
+              olid: "book_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "books"
+            }
+            {
+              var: "book_id"
+            }
+            {
+              var: "slug"
+            }
+            {
+              lit: "borrow"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.book")]
+  ]
+
+}

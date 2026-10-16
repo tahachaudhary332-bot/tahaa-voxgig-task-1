@@ -1,0 +1,117 @@
+# Entity: reading_goal
+
+main: kit: entity: reading_goal: {
+
+  alias: field: {}
+
+  fields: {
+    goal: {
+      h: "Goal"
+      n: "goal"
+      r: true
+      sh: "The target number of books to read"
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "Response status"
+      t: "`$STRING`"
+    }
+    year: {
+      h: "Year"
+      n: "year"
+      r: true
+      sh: "The year for this reading goal (1-9999)"
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "reading_goal"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /reading-goal.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/reading-goal.json"
+          rb: {
+            fields: [
+              {
+                name: "goal"
+              }
+              {
+                name: "is_update"
+              }
+              {
+                name: "year"
+              }
+            ]
+            kind: "form"
+            media: "application/x-www-form-urlencoded"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "reading-goal.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /reading-goal.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "year"
+                or: "year"
+                r: false
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/reading-goal.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "reading-goal.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.goal`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
